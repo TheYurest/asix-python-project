@@ -1,0 +1,1 @@
+# moviments.py: Implementa les regles per moure l’explorador.

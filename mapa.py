@@ -1,0 +1,1 @@
+# mapa.py: Genera el mapa i col·loca els elements. També gestiona les regles de cada element.

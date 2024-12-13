@@ -1,0 +1,1 @@
+# elements.py: Defineix els elements i les seves característiques.
