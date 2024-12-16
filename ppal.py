@@ -11,6 +11,13 @@
 #  A   A  DDDD   IIIII  LLLLL
 
 
+#  K  K   AAA   NN   N   AAA   V   V
+#  K K   A   A  N N  N  A   A  V   V
+#  KK    AAAAA  N  N N  AAAAA   V V
+#  K K   A   A  N   NN  A   A   V V  
+#  K  K  A   A  N    N  A   A    V
+
+
 # MÒDUL PRINCIPAL (main.py)
 # ppal.py: Mòdul principal que inicialitza el joc i mostra el resultat final.
 
