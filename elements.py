@@ -2,7 +2,7 @@
 if __name__=="__main__":
     print("ERROR: s'ha d'executar l'arxiu \"ppal.py\"")
 else:
-    # Classe element. Farem servir herència per a cada element
+    # Classe element. Farem servir herència per a cada elemen
     class Element:
 
         # Lletra: La lletra per la que serà representada
