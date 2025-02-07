@@ -45,7 +45,7 @@ class Animal(Element):
     def __init__(self):
 
         def accio():
-            pass
+            pass #TO DO: ADD CINEMATIC OR SMTHN
 
         Element.__init__("A", 2 if dificultat==2 else 5, a=accio) # si la dificultat és difícil, només +2 d'energia. Si no, +5
 
@@ -53,4 +53,5 @@ class Animal(Element):
 class Cacador(Element):
 
     def __init__(self):
+        energies = []
         Element.__init__("C", )
