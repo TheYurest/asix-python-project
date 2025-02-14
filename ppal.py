@@ -32,7 +32,7 @@
 
 
 # Importar tots els mòduls adicionals
-import elements, mapa, moviments, var_globals
+import var_globals
 
 
 
@@ -51,3 +51,36 @@ B B  E      S   T    I  A  A  L
 BB   EEE SSS    T   III A  A  LLLL
 
 ''')
+print("Selecciona la teva dificultat:")
+print("1. Fàcil\n2. Normal\n3. Difícil")
+
+# Demanar la dif, entre 1 i 3. Al acabar, elimina la variable per estalviar espai
+user = input("Selecció:")
+while user not in ("1","2","3"):
+    user = input("Selecció fora de rang, prova de nou:")
+var_globals.dificultat = int(user) - 1
+del user
+print("\n"*10) # fer una mica d'espai
+
+#DEBUG: TEST IF DIFFICULTY SET CORRECTLY
+
+#print("DEBUG: DIFICULTY:", var_globals.dificultat)
+
+
+import mapa, moviments # La resta les importem aquí, així algunes configuracions no es desincronitzen (No llegeixin la dificultat abans de seleccionar-la)
+
+
+map = mapa.GenerarMapa()
+FOW = mapa.GenerarFOW(character=0) # Prepara la Fog Of War, que no permet veure zones no visitades. Actuarà com a màscara quan es renderitzi el mapa
+
+
+
+#print("DEBUG: MAP DIMENSIONS\n", mapa.x, mapa.y)
+
+playing = True # Serà False quan la partida termini.
+
+while playing:
+    print(mapa.RenderitzarMapa(map, FOW))
+    moviments.moure(input("Selecciona el teu moviment:"))
+    print("\n"*25) # Donar espai pq la terminal quedi neta
+
