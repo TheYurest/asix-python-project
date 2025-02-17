@@ -11,13 +11,6 @@
 #  A   A  DDDD   IIIII  LLLLL
 
 
-#  K  K   AAA   NN   N   AAA   V   V
-#  K K   A   A  N N  N  A   A  V   V
-#  KK    AAAAA  N  N N  AAAAA   V V
-#  K K   A   A  N   NN  A   A   V V
-#  K  K  A   A  N    N  A   A    V
-
-
 # MÒDUL PRINCIPAL (main.py)
 # ppal.py: Mòdul principal que inicialitza el joc i mostra el resultat final.
 
@@ -60,6 +53,13 @@ while user not in ("1","2","3"):
     user = input("Selecció fora de rang, prova de nou:")
 var_globals.dificultat = int(user) - 1
 del user
+
+# Canviar la vida i la vida màxima
+energies = [100, 50, 25]
+var_globals.vida_jugador = energies[var_globals.dificultat]
+var_globals.vida_max = var_globals.vida_jugador
+
+
 print("\n"*10) # fer una mica d'espai
 
 #DEBUG: TEST IF DIFFICULTY SET CORRECTLY
@@ -80,7 +80,11 @@ FOW = mapa.GenerarFOW(character=0) # Prepara la Fog Of War, que no permet veure 
 playing = True # Serà False quan la partida termini.
 
 while playing:
+    print(f"{var_globals.vida_jugador}/{var_globals.vida_max} ♥ ------ Sitting on: {map[var_globals.pos_jugador[1]][var_globals.pos_jugador[0]]}. Coords: {var_globals.pos_jugador}")
     print(mapa.RenderitzarMapa(map, FOW))
-    moviments.moure(input("Selecciona el teu moviment:"))
+    print(f"Cell energy: {map[var_globals.pos_jugador[1]][var_globals.pos_jugador[0]].energia}")
+    moviments.moure(input("Selecciona el teu moviment:"), map)
+
+
     print("\n"*25) # Donar espai pq la terminal quedi neta
 

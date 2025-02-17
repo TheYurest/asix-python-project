@@ -19,11 +19,12 @@ class Element:
     # Acció: La funció que s'executarà quan el jugador passi per l'element (Funcionalitat extra, per exemple, cinemàtica)
     # Leaves: Si la casella ha de ser substituida per l'element per defecte
 
-    def __init__(self, l, e=0, p=True, a=None, leaves=True):
+    def __init__(self, l, e=0, p=True, a=None, leaves=False):
         self.lletra = l[0] # Agafem la primera lletra, per si de cas intentem passar una string de més d'un caràcter
         self.energia = e
         self.passable = p
         self.accio = a
+        self.leaves = leaves
 
     
     # Quan es vulgui fer servir com a string, retorna la lletra. Útil per representar el mapa
@@ -35,7 +36,7 @@ class Element:
 class Vacuum(Element): # Casella vuida, es pot passar, no té cap acció i no afecta en l'energia
 
     def __init__(self):
-        Element.__init__(self, ".") # "/" per debug, però serà un espai vuit en la versió final
+        Element.__init__(self, " ") # "/" per debug, però serà un espai vuit en la versió final
 
 
 
@@ -47,23 +48,218 @@ class Animal(Element):
     def __init__(self):
 
         def accio():
-            pass #TO DO: ADD CINEMATIC OR SMTHN
+            print("\n"*25)
 
-        Element.__init__(self, "A", 2 if dificultat==2 else 5, a=accio) # si la dificultat és difícil, només +2 d'energia. Si no, +5
+            animals = [r'''
+       _------.
+      /  ,     \_
+    /   /  /{}\ |o\_
+   /    \  `--' /-' \
+  |      \      \    |
+ |              |`-, |
+ /              /__/)/
+|              |
+
+Has fotografiat un lloro!''', r'''
+                              ___,--------,____
+                      __--~~~~                 ~~---,_
+                   ,-'                  __,--,_       `\,___,-,__
+                ,-'                 __/'/-~~~\  `  ` . '    , |  `~~\
+             _/`      _/~~      '~~   \,_\_ O /        '  '~_/'      `\
+           /'        '                   =-'~~  _  /  ~   /'          `\
+        _/'  /~                            ,--,____,-----|,_,-,_       `\
+    _,/'    '              ,-'      _      `~'------'~~~~~--    `~~~~\  |
+ ,-'             /~       '    ,-~~~         _,       ,-=~~~~~~~~~~~~'| |
+~              .'             '         ,   '      /~`                |/
+                                  /' ,/'       _/~'
+                   ,       /    /`          _/~ 
+        /~        /      /`               /' 
+      .'                                /' 
+                       /'      .      /
+                      `       /'     | 
+                                    '
+Has fotografiat una àguila! Impresionant!''', r'''
+      ,~.
+   ,-'__ `-,
+  {,-'  `. }              ,')
+ ,( a )   `-.__         ,',')~,
+<=.) (         `-.__,==' ' ' '}
+  (   )                      /
+   `-'\   ,                  )
+       |  \        `~.      /
+       \   `._        \    /
+        \     `._____,'   /
+         `-.            ,'
+            `-.      ,-'
+               `~~~~'
+               //_||
+            __//--'/`   hjw
+          ,--'/`  '
+             '
+
+Has fotografiat una gallina!''', r'''
+
+            _.-.
+        .-.  `) |  .-. 
+    _.'`. .~./  \.~. .`'._
+.-'`.'-'.'.-:    ;-.'.'-'.`'-.
+ `'`'`'`'`   \  /   `'`'`'`'`
+             /||\
+            / ^^ \
+            `'``'`
+Has fotografiat un ocell!''', r'''
+                                  z-                                         
+                                 d$                                          
+                               .$$F                                          
+                              z$$$                             d$$b     .$$  
+-                            J$$$$                            d$. $$$$$$$$$  
+  \                         4$$$$$                           z$$$$$$$$$$$$"  
+   "c                       $$$$$$F                         d$$$*$$$$"       
+    "$e.      .            $$$$$$$$                       .$$$$$             
+     3$$$$$$P"             $$$$$$$$c                    .$$$$$$              
+      $$$$$"               $$$$$$$$$r                .e$$$$$$$F              
+      *$$$b                $$$$$$$$$$c           .e$$$$$$$$$$P               
+      '$P "$.              $$$$$$$$$$$b.    .ee$$$$$$$$$$$$$P                
+       $   ^$$.             $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$F                 
+       "     $$$$e..      .e$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"                  
+      4       "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$P                    
+                *$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$P                      
+                  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*                        
+                     "*$$$$$$$$$$$$$$$$$$$$$$$$$$$"                          
+                         "*$$$$$$$$$$$$$$$$$$$$$"                            
+                             *$$$$$$$$$$$$$$$"                               
+                                  """"""""
+Com?! Has fotografiat la Draca de Solsona!
+Feliç Carnaval!''',r'''
+quu..__
+ $$$b  `---.__
+  "$$b        `--.                          ___.---uuudP
+   `$$b           `.__.------.__     __.---'      $$$$"              .
+     "$b          -'            `-.-'            $$$"              .'|
+       ".                                       d$"             _.'  |
+         `.   /                              ..."             .'     |
+           `./                           ..::-'            _.'       |
+            /                         .:::-'            .-'         .'
+           :                          ::''\          _.'            |
+          .' .-.             .-.           `.      .'               |
+          : /'$$|           .@"$\           `.   .'              _.-'
+         .'|$u$$|          |$$,$$|           |  <            _.-'
+         | `:$$:'          :$$$$$:           `.  `.       .-'
+         :                  `"--'             |    `-.     \
+        :##.       ==             .###.       `.      `.    `\
+        |##:                      :###:        |        >     >
+        |#'     `..'`..'          `###'        x:      /     /
+         \                                   xXX|     /    ./
+          \                                xXXX'|    /   ./
+          /`-.                                  `.  /   /
+         :    `-  ...........,                   | /  .'
+         |         ``:::::::'       .            |<    `.
+         |             ```          |           x| \ `.:``.
+         |                         .'    /'   xXX|  `:`M`M':.
+         |    |                    ;    /:' xXXX'|  -'MMMMM:'
+         `.  .'                   :    /:'       |-'MMMM.-'
+          |  |                   .'   /'        .'MMM.-'
+          `'`'                   :  ,'          |MMM<
+            |                     `'            |tbap\
+             \                                  :MM.-'
+              \                 |              .''
+               \.               `.            /
+                /     .:::::::.. :           /
+               |     .:::::::::::`.         /
+               |   .:::------------\       /
+              /   .''               >::'  /
+              `',:                 :    .'
+                                   `:.:'
+
+Com?! Has fotografiat un Pikachu!
+Atrapal's a tots!''',r'''
+  .--.            .--.
+ ( (`\\."--``--".//`) )
+  '-.   __   __    .-'
+   /   /__\ /__\   \
+  |    \ 0/ \ 0/    |
+  \     `/   \`     /
+   `-.  /-"""-\  .-`
+     /  '.___.'  \
+     \     I     /
+      `;--'`'--;`
+        '.___.'
+Has fotografiat una pantera!
+Espera, és rosa?''']
+            
+            from random import randint as r
+            input(animals[r(0, len(animals)-1)])
+
+        Element.__init__(self, "A", e=2 if dificultat==2 else 5, a=accio, leaves=True) # si la dificultat és difícil, només +2 d'energia. Si no, +5
 
 
 class Cacador(Element):
 
     def __init__(self):
+
+        def accio():
+            input(r'''
+           ___      |\________/)
+          [_,_])    \ /       \|
+         /|=T=|]     /   __  __\
+         |\ " //     |_  9   p ]\
+         ||'-'/--.  / /\ =|  \|\ \
+        /|| <\/> |\ | '._, @ @)<_)
+       | |\   |  |   \.__/(_;_)
+       |  .   H  |   |  :  '='|
+       |  |  _H__/  _| :      |
+        \  '.__  \ /  ;      ';
+       __'-._(_}==.'  :       ;
+      (___|    /-' |   :.     :
+     [.-'  \   |   \   \ ;   :
+    .-'     |  |    |  |   ":
+   /        |==|     \  \  /  \_
+  /         [  |      '._\_ -._ \
+ /           \__)   __.- \ \   )\\
+/       |        /.'      >>)
+|        \       |\     |
+|     .'  '-.    | \    /
+|    /     /     / /   /
+           |    /
+
+El rei t'ha confòs per un animal i t'ha disparat!
+''')
+
+
         energies = [-30, -40, -50]
-        Element.__init__(self, "♔", energies[dificultat])
+        Element.__init__(self, "♔", e=energies[dificultat], leaves=True, a=accio)
 
 
 
 class Trampa(Element):
 
+
+
     def __init__(self):
+
+        def accio():
+            print("\n"*25)
+            input(r'''
+            ________
+            \       \
+  ________   \____   \
+  \       \      /   /
+   \____   \____/   /   ____
+       /            \   \   \
+  ____/   ________   \   \   \
+ /        \       \   \  /
+/   ____   \____   \   \/
+\   \   \      /   /
+ \   \   \____/   /   ____
+  \  /            \  /   /
+   \/   ________   \/   /
+        \       \      /
+         \____   \____/
+             /
+        ____/
+Has caigut en una trampa!''')
+
         energies = [-20, -25, -30]
-        Element.__init__(self, "T", energies[dificultat], leaves=False)
+        Element.__init__(self, "T", e=energies[dificultat], leaves=False, a=accio)
 
 default_element = Vacuum

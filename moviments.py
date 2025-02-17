@@ -2,31 +2,49 @@
 if __name__=="__main__":
     print("ERROR: s'ha d'executar l'arxiu \"ppal.py\"")
     exit()
-from var_globals import pos_jugador # pos_jugador = [x, y]
-# Ara es pot fer referència a "pos_jugador" directament, sense escriure "var_globals.pos_jugador"
-
-
-
-
-
-
-
-
 
 
 # Funció per moure el jugador segons la direcció d'entrada i el mapa actual
 # El mapa és una matriu, en la que els elements tenen una propietat "passable" i una "energia". Si "passable" és True, el jugador pot moure's allà, i llavors s'aplicarà la suma/resta d'energia.
 def moure(dir, mapa):
+    from var_globals import pos_jugador
+    from elements import default_element
+
     # Obtenir la posició actual del jugador
     x, y = pos_jugador
+    dir = dir.lower()
+    map_x = len(mapa[0])
+    map_y = len(mapa)
+
+    # Aquesta part prepara les noves coordenades i les comprova
+    if dir == 'w':
+        y-=1
+    elif dir == 's':
+        y+=1
+    elif dir == 'a':
+        x-=1
+    elif dir == 'd':
+        x+=1
+    x, y, = x%map_x, y%map_y
+    
+    import var_globals
+    var_globals.vida_jugador = min(var_globals.vida_max, var_globals.vida_jugador+mapa[y][x].energia)
     
 
-    # Aquesta part mou el jugador adalt si la direcció és "W". Cuando funcione entonces puedes hacer lo mismo con ASD.
-    if dir == 'W':
-        new_y = (y - 1) % mapa.py
-        if mapa.mapa[new_y][x].passable:
-            pos_jugador[1] = new_y
-   
+
+
+    # Finalment, si la casella és disponible, moure el jugador
+    if mapa[y][x].passable:
+        pos_jugador[0], pos_jugador[1] = x, y
+
+    if mapa[y][x].accio != None: mapa[y][x].accio()
+
+    if mapa[y][x].leaves: mapa[y][x] = default_element()
+        
+    
+    
+
+
     # Actualitzar la Boira de Guerra o qualsevol altre estat del joc necessari
     UpdateFOW()
 
