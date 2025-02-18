@@ -71,8 +71,9 @@ import mapa, moviments # La resta les importem aquí, així algunes configuracio
 
 
 map = mapa.GenerarMapa()
-FOW = mapa.GenerarFOW(character=0) # Prepara la Fog Of War, que no permet veure zones no visitades. Actuarà com a màscara quan es renderitzi el mapa
-
+FOW = mapa.GenerarFOW(character="X") # Prepara la Fog Of War, que no permet veure zones no visitades. Actuarà com a màscara quan es renderitzi el mapa
+fow_distancies = [2, 1.5, 1]
+fow_r = fow_distancies[var_globals.dificultat]
 
 
 #print("DEBUG: MAP DIMENSIONS\n", mapa.x, mapa.y)
@@ -80,6 +81,8 @@ FOW = mapa.GenerarFOW(character=0) # Prepara la Fog Of War, que no permet veure 
 playing = True # Serà False quan la partida termini.
 
 while playing:
+
+    moviments.UpdateFOW(FOW, fow_r)
     print(mapa.RenderitzarMapa(map, FOW))
     moviments.moure(input("Selecciona el teu moviment:"), map)
     print("\n"*25) # Donar espai pq la terminal quedi netal2
