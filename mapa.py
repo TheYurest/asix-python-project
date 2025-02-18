@@ -12,19 +12,23 @@ x, y, elements = 0, 0, 0
 
 element_per_defecte = E.default_element
 
+
 # Actualitzar les variables segons la dificultat
 match var_globals.dificultat:
     case 0:
         # OPCIONS PER DIFICULTAT FÀCIL
         
-        x, y, elements = 5, 5, [ [E.Animal, 2] , [E.Cacador, 1] , [E.Trampa, 2] ]
+        x, y, elements = 5, 5, [ [E.Animal, 2] , [E.Cacador, 1] , [E.Trampa, 2] , [E.Llac, 4], [E.Refugi, 2], [E.Bosc, 2] ]
+        var_globals.animals_restants = 2
     case 1:
         # OPCIONS PER DIFICULTAT NORMAL
-        x, y, elements = 10, 10, [ [E.Animal, 5] , [E.Cacador, 3] , [E.Trampa, 10] ]
+        x, y, elements = 10, 10, [ [E.Animal, 5] , [E.Cacador, 3] , [E.Trampa, 10] , [E.Llac, 14], [E.Refugi, 6], [E.Bosc, 10]  ]
+        var_globals.animals_restants = 5
 
     case 2:
         # OPCIONS PER DIFICULTAT DIFÍCIL
-        x, y, elements = 15, 15, [ [E.Animal, 10] , [E.Cacador, 5] , [E.Trampa, 25] ]
+        x, y, elements = 15, 15, [ [E.Animal, 10] , [E.Cacador, 5] , [E.Trampa, 25] , [E.Llac, 20], [E.Refugi, 16], [E.Bosc, 25]  ]
+        var_globals.animals_restants = 10
 
 
 
@@ -42,7 +46,6 @@ def GenerarMapa(x=x, y=y, llista_elements=elements):
             rax, ray = randint(0, x)-1, randint(0, y-1)
             while type(mapa[rax][ray]) != element_per_defecte or [rax, ray] == var_globals.pos_jugador : rax, ray = randint(0, x-1), randint(0, y-1) # Seleccionar una casella buida a l'atzar
             mapa[rax][ray] = element()
-            print("DEBUG: ELEMENT COĿLOCAT")
 
 
     

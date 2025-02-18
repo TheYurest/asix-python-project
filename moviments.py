@@ -45,8 +45,6 @@ def moure(dir, mapa):
     
 
 
-    # Actualitzar la Boira de Guerra o qualsevol altre estat del joc necessari
-    UpdateFOW()
 
 
 
@@ -58,9 +56,19 @@ def moure(dir, mapa):
 
 
 
-def UpdateFOW():
-    # Aquesta funció es pot implementar per actualitzar la visibilitat del mapa
-    # segons la posició actual del jugador.
-    pass         
+def UpdateFOW(fow, r=2):
+    # Aquesta funció actualitza la visibilitat del mapa segons la posició actual del jugador.
+    from var_globals import pos_jugador
+    from math import dist
+    px, py = pos_jugador
+
+    for fy in range(len(fow)):
+        for fx in range(len(fow[0])):
+            # Mates complicades per calcular la distància al jugador
+            distance = dist([px, py], [fx, fy])
+            if distance <= r: fow[fy][fx] = 0
+    
+
+
 
 #HA D'ACTUALITZAR LA POSICIÓ DEL JUGADOR A var_globals.pos_jugador SEGONS LA INPUT. SI SURT DEL MAPA, HA DE TORNAR PER L'ALTRE COSTAT

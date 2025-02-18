@@ -36,7 +36,7 @@ class Element:
 class Vacuum(Element): # Casella vuida, es pot passar, no té cap acció i no afecta en l'energia
 
     def __init__(self):
-        Element.__init__(self, " ") # "/" per debug, però serà un espai vuit en la versió final
+        Element.__init__(self, ".") # "/" per debug, però serà un espai vuit en la versió final
 
 
 
@@ -48,7 +48,10 @@ class Animal(Element):
     def __init__(self):
 
         def accio():
-            print("\n"*25)
+            
+            import var_globals
+            var_globals.animals_restants -= 1
+            var_globals.Clear()
 
             animals = [r'''
        _------.
@@ -187,6 +190,8 @@ Atrapal's a tots!''',r'''
 Has fotografiat una pantera!
 Espera, és rosa?''']
             
+            
+
             from random import randint as r
             input(animals[r(0, len(animals)-1)])
 
@@ -198,6 +203,9 @@ class Cacador(Element):
     def __init__(self):
 
         def accio():
+            from var_globals import Clear
+            Clear()
+
             input(r'''
            ___      |\________/)
           [_,_])    \ /       \|
@@ -227,7 +235,7 @@ El rei t'ha confòs per un animal i t'ha disparat!
 
 
         energies = [-30, -40, -50]
-        Element.__init__(self, "♔", e=energies[dificultat], leaves=True, a=accio)
+        Element.__init__(self, "C", e=energies[dificultat], leaves=True, a=accio)
 
 
 
@@ -238,7 +246,8 @@ class Trampa(Element):
     def __init__(self):
 
         def accio():
-            print("\n"*25)
+            from var_globals import Clear
+            Clear()
             input(r'''
             ________
             \       \
@@ -261,5 +270,95 @@ Has caigut en una trampa!''')
 
         energies = [-20, -25, -30]
         Element.__init__(self, "T", e=energies[dificultat], leaves=False, a=accio)
+
+class Llac(Element):
+    
+
+    
+    
+    from var_globals import dificultat
+    def __init__(self):
+            energies = [5, 5, 2]
+            def accio():
+
+              input('''
+     ,%&& %&& %
+   ,%&%& %&%& %&
+  %& %&% &%&% % &%
+ % &%% %&% &% %&%&,
+ &%&% %&%& %& &%& %
+%%& %&%& %&%&% %&%%&
+&%&% %&% % %& &% %%&
+&& %&% %&%& %&% %&%'
+ '%&% %&% %&&%&%%'%
+  % %& %& %&% &%%
+    `\%%.'  /`%&'
+      |    |            /`-._           _\\/
+      |,   |_          /     `-._ ..--~`_
+      |;   |_`\_      /  ,\\.~`  `-._ -  ^
+      |;:  |/^}__..-,@   .~`    ~    `o ~
+      |;:  |(____.-'     '.   ~   -    `    ~
+      |;:  |  \ / `\       //.  -    ^   ~
+      |;:  |\ /' /\_\_        ~. _ ~   -   //-
+ jgs\\/;:   \'--' `---`           `\\//-\\///
+T'has trobat un llac!
+  Has recuperat vida.''')
+            Element.__init__(self, "L", e=energies[dificultat], p=True, a=accio, leaves=True)
+
+
+
+class Refugi(Element):
+    def __init__(self):
+        
+        def accio():
+            from var_globals import Clear
+            Clear()
+
+            input(r'''
+                  .e$c"*eee...         
+                z$$$$$$.  "*$$$$$$$$$.                    
+            .z$$$$$$$$$$$e. "$$$$$$$$$$c.                 
+         .e$$P""  $$  ""*$$$bc."$$$$$$$$$$$e.             
+     .e$*""       $$         "**be$$$***$   3             
+     $            $F              $    4$r  'F            
+     $           4$F              $    4$F   $            
+    4P   \       4$F              $     $$   3r           
+    $"    r      4$F              3     $$r   $           
+    $     '.     $$F              4F    4$$   'b          
+   dF      3     $$    ^           b     $$L   "L         
+   $        .    $$   %            $     ^$$r   "c        
+  JF             $$  %             4r     '$$.   3L       
+ .$              $$ "               $      ^$$r""         
+ $%              $$P                3r  .e*"              
+'*=*********************************$$P"
+    T'has trobat un refugi!
+        Has recuperat tota l'energia!''')
+
+        Element.__init__(self , l="⌂", e=9999, a=accio, leaves=True)
+
+
+class Bosc(Element):
+    
+
+    def __init__(self):
+        def accio():
+            from var_globals import Clear
+            Clear()
+            input(r'''
+      /\      /\      /\      /\      /\      /\      /\      /\
+     /**\    /**\    /**\    /**\    /**\    /**\    /**\    /**\
+    /****\  /****\  /****\  /****\  /****\  /****\  /****\  /****\
+   /      \/      \/      \/      \/      \/      \/      \/      \
+  /  /\    \ /\    \ /\    \ /\    \ /\    \ /\    \ /\    \ /\
+ /  /**\    /**\    /**\    /**\    /**\    /**\    /**\    /**\    /**\
+/____**\__/****\__/****\__/****\__/****\__/****\__/****\__/****\__/****\__
+     ||       ||       ||       ||       ||       ||       ||       ||
+     ||       ||       ||       ||       ||       ||       ||       ||
+     ||       ||       ||       ||       ||       ||       ||       ||
+No pots passar per aquí, el bosc és massa dens.
+    Busca un altre camí, recorda que el mapa és esfèric.''')
+
+
+        Element.__init__(self, "B", p=False, a=accio)
 
 default_element = Vacuum
