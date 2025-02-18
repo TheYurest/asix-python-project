@@ -280,7 +280,8 @@ class Llac(Element):
     def __init__(self):
             energies = [5, 5, 2]
             def accio():
-
+              from var_globals import Clear
+              Clear()
               input('''
      ,%&& %&& %
    ,%&%& %&%& %&

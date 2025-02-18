@@ -1,14 +1,10 @@
-#  EEE    EEEE    EEEE   EEEEE   EEEEE    EEE    E
-#  E  E   E      E         E       E     E   E   E
-#  EEE    EEE     EEE      E       E     EEEEE   E
-#  E  E   E          E     E       E     E   E   E
-#  EEE    EEEE    EEE      E     EEEEE   E   E   EEEEE
-
-#   AAA   DDDD   IIIII  L
-#  A   A  D   D    I    L
-#  AAAAA  D   D    I    L
-#  A   A  D   D    I    L
-#  A   A  DDDD   IIIII  LLLLL
+#  ___   ____  __  _____  _    __    _       
+# | |_) | |_  ( (`  | |  | |  / /\  | |      
+# |_|_) |_|__ _)_)  |_|  |_| /_/--\ |_|__    
+#   __    ___   _   _         __    _        
+#  / /\  | | \ | | | |       / /`  | |_|  __ 
+# /_/--\ |_|_/ |_| |_|__     \_\_, |_| | (_()
+# asciiart.eu
 
 
 # MÒDUL PRINCIPAL (main.py)
@@ -19,7 +15,8 @@
 # ENTREGA FINAL  :  11 ABR
 
 # REQUISITS DEL PROGRAMA (copy-pasta del document) A REQUISITS.TXT
-
+if __name__ != "__main__":
+    exit("ERROR: ppal.py ha de ser executat com a *main*")
 
 
 
@@ -33,25 +30,55 @@ import var_globals
 # PANTALLA PRINCIPAL, SELECCIONAR DIFICULTAT
 # TAMBÉ ES POT SELECCIONAR EL NOM (Funcionalitat extra)
 print("\n"*25)
-intro = '''
-
-======BENVINGUTS AL PROJECTE======
-
-BB   EEE  SSS TTTTT III  AA   L
-B B  E   S      T    I  A  A  L
-BB   EE   SS    T    I  AAAA  L
-B B  E      S   T    I  A  A  L
-BB   EEE SSS    T   III A  A  LLLL
+intro = r'''
+        ___  ____ _  _ _  _ _ _    ____ _  _ ___ ____    ____ _       ___  ____ ____  _ ____ ____ ___ ____
+        |__] |___ |\ | |  | | |    | __ |  |  |  [__     |__| |       |__] |__/ |  |  | |___ |     |  |___
+        |__] |___ | \|  \/  | |___ |__] |__|  |  ___]    |  | |___    |    |  \ |__| _| |___ |___  |  |___
+ .--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--. 
+/ .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \
+\ \/\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ \/ /
+ \/ /`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\/ / 
+ / /\                                                                                                    / /\ 
+/ /\ \                                                                                                  / /\ \
+\ \/ /    ▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄               \ \/ /
+ \/ /    ▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌               \/ / 
+ / /\    ▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀  ▀▀▀▀█░█▀▀▀▀  ▀▀▀▀█░█▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌▐░▌               / /\ 
+/ /\ \   ▐░▌       ▐░▌▐░▌          ▐░▌               ▐░▌          ▐░▌     ▐░▌       ▐░▌▐░▌              / /\ \
+\ \/ /   ▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄▄▄      ▐░▌          ▐░▌     ▐░█▄▄▄▄▄▄▄█░▌▐░▌              \ \/ /
+ \/ /    ▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌     ▐░▌          ▐░▌     ▐░░░░░░░░░░░▌▐░▌               \/ / 
+ / /\    ▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀█░▌     ▐░▌          ▐░▌     ▐░█▀▀▀▀▀▀▀█░▌▐░▌               / /\ 
+/ /\ \   ▐░▌       ▐░▌▐░▌                    ▐░▌     ▐░▌          ▐░▌     ▐░▌       ▐░▌▐░▌              / /\ \
+\ \/ /   ▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄█░▌     ▐░▌      ▄▄▄▄█░█▄▄▄▄ ▐░▌       ▐░▌▐░█▄▄▄▄▄▄▄▄▄     \ \/ /
+ \/ /    ▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌     ▐░▌     ▐░░░░░░░░░░░▌▐░▌       ▐░▌▐░░░░░░░░░░░▌     \/ / 
+ / /\     ▀▀▀▀▀▀▀▀▀▀   ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀       ▀       ▀▀▀▀▀▀▀▀▀▀▀  ▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀      / /\ 
+/ /\ \                                                                                                  / /\ \
+\ \/ /                                                                                                  \ \/ /
+ \/ /                                                                                                    \/ / 
+ / /\.--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--./ /\ 
+/ /\ \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \/\ \
+\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' /
+ `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--' 
 
 '''
 
 
-var_globals.RenderText("Selecciona la teva dificultat:\n1. Fàcil\n2. Normal\n3. Difícil", upperText=intro, delay=0.1)
+var_globals.RenderText("Selecciona la teva dificultat:\n1. Fàcil\n2. Normal\n3. Difícil", upperText=intro, delay=0.005)
 
 # Demanar la dif, entre 1 i 3. Al acabar, elimina la variable per estalviar espai
 user = input("Selecció:")
-while user not in ("1","2","3"):
-    user = input("Selecció fora de rang, prova de nou:")
+while user.lower() not in ("1","2","3"):
+
+
+    # Si l'usuari vol veure els credits, passar-los i tornar a demanar l'input
+    if user.lower() == "credits":
+        var_globals.Credits()
+        input()
+        var_globals.Clear()
+        var_globals.RenderText("Selecciona la teva dificultat:\n1. Fàcil\n2. Normal\n3. Difícil", upperText=intro, delay=0.005)
+        user = input("Selecció:")
+
+    else:
+        user = input("Selecció fora de rang, prova de nou:")
 var_globals.dificultat = int(user) - 1
 del user
 
