@@ -81,6 +81,7 @@ playing = True # Serà False quan la partida termini.
 
 while playing:
     print(mapa.RenderitzarMapa(map, FOW))
-    moviments.moure(input("Selecciona el teu moviment:"))
-    print("\n"*25) # Donar espai pq la terminal quedi neta
+    moviments.moure(input("Selecciona el teu moviment:"), map)
+    print("\n"*25) # Donar espai pq la terminal quedi netal2
+    
 
