@@ -44,8 +44,14 @@ def GenerarMapa(x=x, y=y, llista_elements=elements):
     for element, ocurrences in llista_elements:
         for i in range(ocurrences):
             rax, ray = randint(0, x)-1, randint(0, y-1)
-            while type(mapa[rax][ray]) != element_per_defecte or [rax, ray] == var_globals.pos_jugador : rax, ray = randint(0, x-1), randint(0, y-1) # Seleccionar una casella buida a l'atzar
+            while type(mapa[rax][ray]) != element_per_defecte : rax, ray = randint(0, x-1), randint(0, y-1) # Seleccionar una casella buida a l'atzar
             mapa[rax][ray] = element()
+    
+
+    # Finalment, col·loca al jugador en una casella vuida
+    
+    while type(mapa[var_globals.pos_jugador[1]][var_globals.pos_jugador[0]]) != element_per_defecte:
+        var_globals.pos_jugador = [randint(0,x-1), randint(0,y-1)]
 
 
     

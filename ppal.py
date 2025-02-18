@@ -20,9 +20,25 @@ if __name__ != "__main__":
 
 
 
-
 # Importar tots els mòduls adicionals
 import var_globals
+
+var_globals.Clear()
+print("Atenció: Aquest programa fa servir art ascii, pel que recomanem fer més gran el terminal per millor visualització, i que la font sigui \"monospace\".\n\nHauries de poder entendre aquest text:")
+print(r''' ________                                              __           
+|        \                                            |  \
+| $$$$$$$$ __    __   ______   ______ ____    ______  | $$  ______
+| $$__    |  \  /  \ /      \ |      \    \  /      \ | $$ /      \
+| $$  \    \$$\/  $$|  $$$$$$\| $$$$$$\$$$$\|  $$$$$$\| $$|  $$$$$$\
+| $$$$$     >$$  $$ | $$    $$| $$ | $$ | $$| $$  | $$| $$| $$    $$
+| $$_____  /  $$$$\ | $$$$$$$$| $$ | $$ | $$| $$__/ $$| $$| $$$$$$$$
+| $$     \|  $$ \$$\ \$$     \| $$ | $$ | $$| $$    $$| $$ \$$     \
+ \$$$$$$$$ \$$   \$$  \$$$$$$$ \$$  \$$  \$$| $$$$$$$  \$$  \$$$$$$$
+                                            | $$
+                                            | $$
+                                             \$$''')
+print("En aquests casos, podràs polsar [Enter] per continuar, encara que no es demani.")
+input("Prem enter per continuar...")
 
 
 
@@ -72,7 +88,7 @@ while user.lower() not in ("1","2","3"):
     # Si l'usuari vol veure els credits, passar-los i tornar a demanar l'input
     if user.lower() == "credits":
         var_globals.Credits()
-        input()
+        input("Prem enter per continuar...")
         var_globals.Clear()
         var_globals.RenderText("Selecciona la teva dificultat:\n1. Fàcil\n2. Normal\n3. Difícil", upperText=intro, delay=0.005)
         user = input("Selecció:")
