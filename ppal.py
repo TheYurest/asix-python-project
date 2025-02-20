@@ -112,6 +112,49 @@ var_globals.Clear() # fer una mica d'espai
 
 #print("DEBUG: DIFICULTY:", var_globals.dificultat)
 
+# Selecció de personatje (Limitat a uns en concret)
+personatges = ["E", "ඞ", "8", "༏", "i", "ï"]
+selecting = True
+while selecting:
+    var_globals.Clear()
+    print(r'''
+
+
+ _______  _______  _        _______  _______  _______ _________ _______  _        _______    
+(  ____ \(  ____ \( \      (  ____ \(  ____ \(  ____ \\__   __/(  ___  )( (    /|(  ___  )   
+| (    \/| (    \/| (      | (    \/| (    \/| (    \/   ) (   | (   ) ||  \  ( || (   ) |   
+| (_____ | (__    | |      | (__    | |      | |         | |   | |   | ||   \ | || (___) |   
+(_____  )|  __)   | |      |  __)   | |      | |         | |   | |   | || (\ \) ||  ___  |   
+      ) || (      | |      | (      | |      | |         | |   | |   | || | \   || (   ) |   
+/\____) || (____/\| (____/\| (____/\| (____/\| (____/\___) (___| (___) || )  \  || )   ( |   
+\_______)(_______/(_______/(_______/(_______/(_______/\_______/(_______)|/    )_)|/     \|   
+ _______  _______  _______  _______  _______  _        _______ _________ _______  _______  _ 
+(  ____ )(  ____ \(  ____ )(  ____ \(  ___  )( (    /|(  ___  )\__   __/(  ____ \(  ____ \( )
+| (    )|| (    \/| (    )|| (    \/| (   ) ||  \  ( || (   ) |   ) (   | (    \/| (    \/| |
+| (____)|| (__    | (____)|| (_____ | |   | ||   \ | || (___) |   | |   | |      | (__    | |
+|  _____)|  __)   |     __)(_____  )| |   | || (\ \) ||  ___  |   | |   | | ____ |  __)   | |
+| (      | (      | (\ (         ) || |   | || | \   || (   ) |   | |   | | \_  )| (      (_)
+| )      | (____/\| ) \ \__/\____) || (___) || )  \  || )   ( |   | |   | (___) || (____/\ _ 
+|/       (_______/|/   \__/\_______)(_______)|/    )_)|/     \|   )_(   (_______)(_______/(_)
+''')
+    
+    #Enumera els personatges
+    for v, i in enumerate(personatges):
+        print(f"{v+1}. {i}")
+    user = input("Selecciona el teu personatge:")
+    try:
+        user = int(user)
+        user = user-1
+        if user < 0: continue
+        var_globals.character_jugador = personatges[user]
+        selecting = False
+    except IndexError: # Si l'usuari no entra un numero
+        pass
+    except ValueError: # Si l'usuari no entra un numero dins del rang
+        pass
+    
+del selecting
+var_globals.Clear()
 
 import mapa, moviments # La resta les importem aquí, així algunes configuracions no es desincronitzen (No llegeixin la dificultat abans de seleccionar-la)
 

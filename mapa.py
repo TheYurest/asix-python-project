@@ -32,6 +32,16 @@ match var_globals.dificultat:
 
 
 
+
+
+
+
+
+
+
+
+
+
 #X i Y son les dimensions. "Elements" és una matriu, on cada fila té l'element i el nombre d'ocurrences.
 #Estan aqui per si hem de fer debug
 
