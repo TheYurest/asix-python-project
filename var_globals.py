@@ -10,3 +10,6 @@ character_jugador = "ඞ"
 dificultat = 0 # 0 - FACIL || 1 - MITG || 2 - DIFICIL
 
 #CODI AQUÍ
+animals_restants = 0
+
+ 

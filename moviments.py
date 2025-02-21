@@ -29,6 +29,10 @@ def moure(dir, mapa):
         pos_jugador [0] += 1
         if pos_jugador[0] >= len(mapa[0]):
             pos_jugador[0] = 0 
+    
+    x,y=pos_jugador
+    if mapa[y][x].accio != None:
+        mapa[y][x].accio()
             
         
 

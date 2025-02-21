@@ -18,13 +18,18 @@ match var_globals.dificultat:
         # OPCIONS PER DIFICULTAT FÀCIL
         
         x, y, elements = 5, 5, [ [E.Animal, 2] , [E.Cacador, 1] , [E.Trampa, 2] ]
+        var_globals.animals_restants = 2
     case 1:
         # OPCIONS PER DIFICULTAT NORMAL
         x, y, elements = 10, 10, [ [E.Animal, 5] , [E.Cacador, 3] , [E.Trampa, 10] ]
+        var_globals.animals_restants = 5
 
     case 2:
         # OPCIONS PER DIFICULTAT DIFÍCIL
         x, y, elements = 15, 15, [ [E.Animal, 10] , [E.Cacador, 5] , [E.Trampa, 25] ]
+        var_globals.animals_restants = 10
+        
+
 
 
 

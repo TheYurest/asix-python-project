@@ -41,15 +41,21 @@ class Vacuum(Element): # Casella vuida, es pot passar, no té cap acció i no af
 
 
 # Classe Animal (Herència: Element) - Retorna +5 d'energía en fàcil i mitg, +2 en difícil, es pot passar, i es representa amb la lletra "A"
+import var_globals
+
 class Animal(Element):
 
 
     def __init__(self):
 
-        def accio():
-            pass #TO DO: ADD CINEMATIC OR SMTHN
+        def accio(): 
+            import var_globals
+            var_globals.animals_restants -= 1
+            #TO DO: ADD CINEMATIC OR SMTHN
 
         Element.__init__(self, "A", 2 if dificultat==2 else 5, a=accio) # si la dificultat és difícil, només +2 d'energia. Si no, +5
+
+        super().__init__("A", 5 if dificultat in [0, 1] else 2, a=accio)
 
 
 class Cacador(Element):
