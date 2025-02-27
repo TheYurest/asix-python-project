@@ -50,6 +50,8 @@ class Animal(Element):
         def accio():
             
             import var_globals
+            from playsound import playsound as sound
+            sound("sounds/camera.mp3", False)
             var_globals.animals_restants -= 1
             var_globals.Clear()
 
@@ -204,7 +206,10 @@ class Cacador(Element):
 
         def accio():
             from var_globals import Clear
+            from playsound import playsound as sound
+            sound("sounds/gunshot.mp3", False)
             Clear()
+            
 
             input(r'''
            ___      |\________/)
@@ -247,6 +252,8 @@ class Trampa(Element):
 
         def accio():
             from var_globals import Clear
+            from playsound import playsound as sound
+            sound("sounds/trap.mp3",False)
             Clear()
             input(r'''
             ________
@@ -277,10 +284,15 @@ class Llac(Element):
     
     
     from var_globals import dificultat
+
+
+
     def __init__(self):
             energies = [5, 5, 2]
             def accio():
               from var_globals import Clear
+              from playsound import playsound as sound
+              sound("sounds/lake.mp3",False)
               Clear()
               input('''
      ,%&& %&& %
