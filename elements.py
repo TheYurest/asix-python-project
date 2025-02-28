@@ -55,14 +55,15 @@ class Animal(Element):
 
         Element.__init__(self, "A", 2 if dificultat==2 else 5, a=accio) # si la dificultat és difícil, només +2 d'energia. Si no, +5
 
-        super().__init__("A", 5 if dificultat in [0, 1] else 2, a=accio)
 
-
-class Cacador(Element):
+class Cacador(Element):    
+  
 
     def __init__(self):
+
         energies = [-30, -40, -50]
-        Element.__init__(self, "♔", energies[dificultat])
+        super().__init__("♔", energies[dificultat])  # Associar acció al caçador
+
 
 
 

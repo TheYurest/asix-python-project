@@ -96,10 +96,13 @@ while playing:
     moviments.UpdateFOW(FOW, fow_r)
     print(mapa.RenderitzarMapa(map, FOW))
     moviments.moure(input("Selecciona el teu moviment:"), map)
+    print(f"Vida del jugador: {var_globals.vida_jugador}")
+
     print("\n"*25) # Donar espai pq la terminal quedi netal2
+    if var_globals.vida_jugador <= 0:
+        playing = False
+        print("💀 Has perdut! T'has quedat sense energia!")
 
     if var_globals.animals_restants == 0:
         playing = False
         print("🎉 Has fotografiat tots els animals! Has guanyat! 🎉")
-    
-

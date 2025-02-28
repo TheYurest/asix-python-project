@@ -4,12 +4,11 @@ if __name__=="__main__":
     print("ERROR: s'ha d'executar l'arxiu \"ppal.py\"")
     exit()
 
-vida_jugador = 0
+vida_jugador = 100
+
 pos_jugador = [3, 3] # X, Y
 character_jugador = "ඞ"
 dificultat = 0 # 0 - FACIL || 1 - MITG || 2 - DIFICIL
 
 #CODI AQUÍ
 animals_restants = 0
-
- 

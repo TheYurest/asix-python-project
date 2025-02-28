@@ -7,7 +7,9 @@ from var_globals import pos_jugador # pos_jugador = [x, y]
 
 # Funció per moure el jugador segons la direcció d'entrada i el mapa actual
 # El mapa és una matriu, en la que els elements tenen una propietat "passable" i una "energia". Si "passable" és True, el jugador pot moure's allà, i llavors s'aplicarà la suma/resta d'energia.
-def moure(dir, mapa):
+def moure(dir, mapa):    
+    from var_globals import vida_jugador
+
     # Obtenir la posició actual del jugador
     x, y = pos_jugador
     dir = dir.upper()
@@ -31,10 +33,16 @@ def moure(dir, mapa):
             pos_jugador[0] = 0 
     
     x,y=pos_jugador
-    if mapa[y][x].accio != None:
-        mapa[y][x].accio()
-            
+    if mapa[y][x].accio != None:        
+        mapa[y][x].accio()  # Call the action method to modify vida_jugador 
         
+    import var_globals
+    var_globals.vida_jugador = mapa[y][x].energia + vida_jugador
+
+
+       
+    
+
 
 def UpdateFOW(fow, r=2):
     from math import dist
