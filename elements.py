@@ -194,8 +194,9 @@ Espera, és rosa?''']
 
             from random import randint as r
             input(animals[r(0, len(animals)-1)])
-
-        Element.__init__(self, "A", e=2 if dificultat==2 else 5, a=accio, leaves=True) # si la dificultat és difícil, només +2 d'energia. Si no, +5
+        energies = [5, 5, 2, 1]
+        from var_globals import dificultat
+        Element.__init__(self, "A", e=energies[dificultat], a=accio, leaves=True) # si la dificultat és difícil, només +2 d'energia. Si no, +5
 
 
 class Cacador(Element):
@@ -234,7 +235,7 @@ El rei t'ha confòs per un animal i t'ha disparat!
 ''')
 
 
-        energies = [-30, -40, -50]
+        energies = [-30, -40, -50, -1]
         Element.__init__(self, "C", e=energies[dificultat], leaves=True, a=accio)
 
 
@@ -268,7 +269,7 @@ class Trampa(Element):
         ____/
 Has caigut en una trampa!''')
 
-        energies = [-20, -25, -30]
+        energies = [-20, -25, -30, 0]
         Element.__init__(self, "T", e=energies[dificultat], leaves=False, a=accio)
 
 class Llac(Element):
@@ -278,7 +279,7 @@ class Llac(Element):
     
     from var_globals import dificultat
     def __init__(self):
-            energies = [5, 5, 2]
+            energies = [5, 5, 2, 0]
             def accio():
               from var_globals import Clear
               Clear()

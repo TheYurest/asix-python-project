@@ -78,11 +78,11 @@ intro = r'''
 '''
 
 
-var_globals.RenderText("Selecciona la teva dificultat:\n1. Fàcil\n2. Normal\n3. Difícil", upperText=intro, delay=0.005)
+var_globals.RenderText("Selecciona la teva dificultat:\n1. Fàcil\n2. Normal\n3. Difícil\n4. Hide n seek", upperText=intro, delay=0.005)
 
 # Demanar la dif, entre 1 i 3. Al acabar, elimina la variable per estalviar espai
 user = input("Selecció:")
-while user.lower() not in ("1","2","3"):
+while user.lower() not in ("1","2","3", "4"):
 
 
     # Si l'usuari vol veure els credits, passar-los i tornar a demanar l'input
@@ -99,7 +99,7 @@ var_globals.dificultat = int(user) - 1
 del user
 
 # Canviar la vida i la vida màxima
-energies = [100, 50, 25]
+energies = [100, 50, 25, 5]
 var_globals.vida_jugador = energies[var_globals.dificultat]
 var_globals.vida_max = var_globals.vida_jugador
 
@@ -160,7 +160,7 @@ import mapa, moviments # La resta les importem aquí, així algunes configuracio
 
 
 map = mapa.GenerarMapa()
-FOW = mapa.GenerarFOW(character="▬") # Prepara la Fog Of War, que no permet veure zones no visitades. Actuarà com a màscara quan es renderitzi el mapa
+FOW = mapa.GenerarFOW(character="█") # Prepara la Fog Of War, que no permet veure zones no visitades. Actuarà com a màscara quan es renderitzi el mapa
 
 
 
@@ -169,7 +169,7 @@ FOW = mapa.GenerarFOW(character="▬") # Prepara la Fog Of War, que no permet ve
 playing = True # Serà False quan la partida termini.
 win = False # Serà True quan tots els animals siguin fotografiats
 
-fow_distances = [2, 1.5, 1] # Les distàncies, per dificultat, que desvelarà el FOW
+fow_distances = [2, 1.5, 1, 0] # Les distàncies, per dificultat, que desvelarà el FOW
 fow_radius = fow_distances[var_globals.dificultat]
 
 moviments.UpdateFOW(FOW, fow_radius)

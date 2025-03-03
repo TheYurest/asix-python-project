@@ -29,6 +29,11 @@ match var_globals.dificultat:
         # OPCIONS PER DIFICULTAT DIFÍCIL
         x, y, elements = 15, 15, [ [E.Animal, 10] , [E.Cacador, 5] , [E.Trampa, 25] , [E.Llac, 20], [E.Refugi, 16], [E.Bosc, 25]  ]
         var_globals.animals_restants = 10
+    
+    case 3:
+        # OPCIONS PER DIFICULTAT HIDE N SEEK
+        x, y, elements = 10, 10, [ [E.Animal, 10] , [E.Cacador, 13] , [E.Bosc, 30] ]
+        var_globals.animals_restants = 10
 
 
 

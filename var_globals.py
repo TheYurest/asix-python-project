@@ -9,7 +9,7 @@ vida_max = 0
 animals_restants = 0
 pos_jugador = [3, 3] # X, Y
 character_jugador = "E"
-dificultat = 0 # 0 - FACIL || 1 - MITG || 2 - DIFICIL
+dificultat = 0 # 0 - FACIL || 1 - MITG || 2 - DIFICIL || 3 - HIDE N SEEK
 
 #CODI AQUÍ
 
