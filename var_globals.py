@@ -5,6 +5,8 @@ if __name__=="__main__":
     exit()
 
 vida_jugador = 100
+mapa = None  # Initialize the map variable
+
 
 pos_jugador = [3, 3] # X, Y
 character_jugador = "ඞ"

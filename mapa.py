@@ -17,16 +17,16 @@ match var_globals.dificultat:
     case 0:
         # OPCIONS PER DIFICULTAT FÀCIL
         
-        x, y, elements = 5, 5, [ [E.Animal, 2] , [E.Cacador, 1] , [E.Trampa, 2] ]
+        x, y, elements = 5, 5, [ [E.Animal, 2] , [E.Cacador, 1] , [E.Trampa, 2] , [E.Llac, 5] ]
         var_globals.animals_restants = 2
     case 1:
         # OPCIONS PER DIFICULTAT NORMAL
-        x, y, elements = 10, 10, [ [E.Animal, 5] , [E.Cacador, 3] , [E.Trampa, 10] ]
+        x, y, elements = 10, 10, [ [E.Animal, 5] , [E.Cacador, 3] , [E.Trampa, 10] , [E.Llac, 5] ]
         var_globals.animals_restants = 5
 
     case 2:
         # OPCIONS PER DIFICULTAT DIFÍCIL
-        x, y, elements = 15, 15, [ [E.Animal, 10] , [E.Cacador, 5] , [E.Trampa, 25] ]
+        x, y, elements = 15, 15, [ [E.Animal, 10] , [E.Cacador, 5] , [E.Trampa, 25] , [E.Llac, 5] ]
         var_globals.animals_restants = 10
         
 

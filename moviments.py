@@ -39,7 +39,9 @@ def moure(dir, mapa):
     import var_globals
     var_globals.vida_jugador = mapa[y][x].energia + vida_jugador
 
-
+    from elements import default_element
+    if mapa[y][x].leaves:
+        mapa[y][x] = default_element()
        
     
 

@@ -81,7 +81,9 @@ print("\n"*10) # fer una mica d'espai
 import mapa, moviments # La resta les importem aquí, així algunes configuracions no es desincronitzen (No llegeixin la dificultat abans de seleccionar-la)
 
 
-map = mapa.GenerarMapa()
+var_globals.mapa = mapa.GenerarMapa()
+map = var_globals.mapa
+
 FOW = mapa.GenerarFOW(character="X") # Prepara la Fog Of War, que no permet veure zones no visitades. Actuarà com a màscara quan es renderitzi el mapa
 fow_distancies = [2, 1.5, 1]
 fow_r = fow_distancies[var_globals.dificultat]

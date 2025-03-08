@@ -24,6 +24,7 @@ class Element:
         self.energia = e
         self.passable = p
         self.accio = a
+        self.leaves = leaves
 
     
     # Quan es vulgui fer servir com a string, retorna la lletra. Útil per representar el mapa
@@ -72,5 +73,16 @@ class Trampa(Element):
     def __init__(self):
         energies = [-20, -25, -30]
         Element.__init__(self, "T", energies[dificultat], leaves=False)
+
+
+
+class Llac(Element):
+    def __init__(self):
+
+        energies = [5, 4, 3]
+        super().__init__("L", energies[dificultat], leaves=True)  # L'acció del Llac s'executarà quan el jugador passi per sobre
+
+
+
 
 default_element = Vacuum
