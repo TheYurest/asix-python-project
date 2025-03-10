@@ -32,8 +32,8 @@ class Element:
         return self.lletra
 
 
+class Vacuum(Element):  # Casella vuida, es pot passar, no té cap acció i no afecta en l'energia
 
-class Vacuum(Element): # Casella vuida, es pot passar, no té cap acció i no afecta en l'energia
 
     def __init__(self):
         Element.__init__(self, ".") # "/" per debug, però serà un espai vuit en la versió final
@@ -82,6 +82,13 @@ class Llac(Element):
         energies = [5, 4, 3]
         super().__init__("L", energies[dificultat], leaves=True)  # L'acció del Llac s'executarà quan el jugador passi per sobre
 
+
+
+class BoscDens(Element):  # Element que no es pot travessar
+    def __init__(self):
+        Element.__init__(self, "B", 0, p=False)  # No es pot passar
+   
+    
 
 
 

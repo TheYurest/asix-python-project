@@ -4,7 +4,8 @@ if __name__=="__main__":
     print("ERROR: s'ha d'executar l'arxiu \"ppal.py\"")
     exit()
 
-vida_jugador = 100
+vida_jugador = 0
+vida_max = [100, 50, 25]
 mapa = None  # Initialize the map variable
 
 

@@ -71,6 +71,11 @@ while user not in ("1","2","3"):
     user = input("Selecció fora de rang, prova de nou:")
 var_globals.dificultat = int(user) - 1
 del user
+var_globals.vida_jugador = var_globals.vida_max[var_globals.dificultat]
+
+
+
+
 print("\n"*10) # fer una mica d'espai
 
 #DEBUG: TEST IF DIFFICULTY SET CORRECTLY
@@ -94,13 +99,20 @@ fow_r = fow_distancies[var_globals.dificultat]
 playing = True # Serà False quan la partida termini.
 
 while playing:
+    print("\n"*25) # Donar espai pq la terminal quedi netal2
+
 
     moviments.UpdateFOW(FOW, fow_r)
+    print(f"Vida del jugador: {var_globals.vida_jugador} / {var_globals.vida_max[var_globals.dificultat]}")
     print(mapa.RenderitzarMapa(map, FOW))
-    moviments.moure(input("Selecciona el teu moviment:"), map)
-    print(f"Vida del jugador: {var_globals.vida_jugador}")
+    
 
-    print("\n"*25) # Donar espai pq la terminal quedi netal2
+
+
+    moviments.moure(input("Selecciona el teu moviment:"), map)
+    
+
+    
     if var_globals.vida_jugador <= 0:
         playing = False
         print("💀 Has perdut! T'has quedat sense energia!")
@@ -108,3 +120,5 @@ while playing:
     if var_globals.animals_restants == 0:
         playing = False
         print("🎉 Has fotografiat tots els animals! Has guanyat! 🎉")
+    
+

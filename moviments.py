@@ -14,20 +14,20 @@ def moure(dir, mapa):
     x, y = pos_jugador
     dir = dir.upper()
 
-    # Aquesta part mou el jugador adalt si la direcció és "W". Cuando funcione entonces puedes hacer lo mismo con ASD.
-    if dir == 'W':
+    # Aquesta part mou el jugador adalt si la direcció és "W". Si el jugador intenta moure's a un Bosc dens, no es permetrà el moviment.
+    if dir == 'W' and mapa[y-1][x].passable:
         pos_jugador [1] -= 1
         if pos_jugador [1] < 0:
             pos_jugador [1] = len(mapa) -1            
-    elif dir == 'S':
+    elif dir == 'S' and mapa[y+1][x].passable:
         pos_jugador [1] += 1
         if pos_jugador [1] >= len(mapa):
             pos_jugador [1] = 0
-    elif dir == 'A':
+    elif dir == 'A' and mapa[y][x-1].passable:
         pos_jugador [0] -= 1
         if pos_jugador [0] < 0:
             pos_jugador [0] = len(mapa[0]) -1
-    elif dir == 'D':
+    elif dir == 'D' and mapa[y][x+1].passable:
         pos_jugador [0] += 1
         if pos_jugador[0] >= len(mapa[0]):
             pos_jugador[0] = 0 
@@ -37,12 +37,11 @@ def moure(dir, mapa):
         mapa[y][x].accio()  # Call the action method to modify vida_jugador 
         
     import var_globals
-    var_globals.vida_jugador = mapa[y][x].energia + vida_jugador
+    var_globals.vida_jugador = min(vida_jugador+mapa[y][x].energia, var_globals.vida_max[var_globals.dificultat])
 
     from elements import default_element
     if mapa[y][x].leaves:
         mapa[y][x] = default_element()
-       
     
 
 
