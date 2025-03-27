@@ -76,4 +76,3 @@ def UpdateFOW(fow, r=2):
         for fx in range(len(fow[0])):
             if dist([fx,fy], [px, py]) <= r: fow[fy][fx] = 0
 
-#HA D'ACTUALITZAR LA POSICIÓ DEL JUGADOR A var_globals.pos_jugador SEGONS LA INPUT. SI SURT DEL MAPA, HA DE TORNAR PER L'ALTRE COSTAT

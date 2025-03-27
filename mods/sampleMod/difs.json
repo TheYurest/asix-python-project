@@ -3,7 +3,7 @@
         "hp":5,
         "x": 10,
         "y": 10,
-        "fow": 0,
+        "fow": 2,
         "goal":5,
         "elems":{
             "Hidespot": 3,

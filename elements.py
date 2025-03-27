@@ -47,14 +47,14 @@ import var_globals
 class Animal(Element):
 
 
-    def __init__(self, energia=2 if dificultat==2 else 5):
+    def __init__(self, energia=[5,5,2][dificultat]):
 
         def accio(): 
             import var_globals
             var_globals.animals_restants -= 1
             #TO DO: ADD CINEMATIC OR SMTHN
 
-        Element.__init__(self, "A", a=accio) # si la dificultat és difícil, només +2 d'energia. Si no, +5
+        Element.__init__(self, "A",e=energia, a=accio) # si la dificultat és difícil, només +2 d'energia. Si no, +5
 
 
 class Cacador(Element):    
