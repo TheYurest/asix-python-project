@@ -21,11 +21,11 @@ match var_globals.dificultat:
         var_globals.animals_restants = 2
     case 1:
         # OPCIONS PER DIFICULTAT NORMAL
-        lx, ly, elements = 10, 10, [[E.Animal, 5], [E.Cacador, 3], [E.Trampa, 10], [E.Llac, 5], [E.BoscDens, 5]]  
+        lx, ly, elements = 10, 10, [[E.Animal, 5, 0], [E.Cacador, 3, 0], [E.Trampa, 10, 0], [E.Llac, 5, 0], [E.BoscDens, 5, 0]]  
         var_globals.animals_restants = 5
     case 2:
         # OPCIONS PER DIFICULTAT DIFÍCIL
-        lx, ly, elements = 15, 15, [[E.Animal, 10], [E.Cacador, 5], [E.Trampa, 25], [E.Llac, 5], [E.BoscDens, 7]]
+        lx, ly, elements = 15, 15, [[E.Animal, 10, 0], [E.Cacador, 5, 0], [E.Trampa, 25, 0], [E.Llac, 5, 0], [E.BoscDens, 7, 0]]
         var_globals.animals_restants = 10
 
 # X i Y son les dimensions. "Elements" és una matriu, on cada fila té l'element i el nombre d'ocurrences.
