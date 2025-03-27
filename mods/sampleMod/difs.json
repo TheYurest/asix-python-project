@@ -1,0 +1,27 @@
+{
+    "Hide n Seek":{
+        "hp":5,
+        "x": 10,
+        "y": 10,
+        "fow": 0,
+        "goal":5,
+        "elems":{
+            "Hidespot": 3,
+            "Animal": 5,
+            "Cacador": 5,
+            "BoscDens":30
+        }
+    },"I Need Space":{
+        "hp":69,
+        "x": 70,
+        "y": 30,
+        "fow": 4,
+        "goal":15,
+        "elems":{
+            "Hidespot": 3,
+            "Animal": 45,
+            "Cacador": 5,
+            "BoscDens":95
+        }
+    }
+}
