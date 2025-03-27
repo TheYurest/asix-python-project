@@ -64,7 +64,6 @@ def getMods():
 
 
             # Ara comprova l'arxiu defaults, i guarda la seva informació
-            modmaxhp=defaults["maxHP"]
             modanimal=defaults["Animal"]
             modcacador=defaults["Cacador"]
             modtrampa=defaults["Trampa"]
@@ -72,7 +71,7 @@ def getMods():
             modboscdens=defaults["BoscDens"]
 
             # Tots els elements han de ser int, així que comproval's tots
-            for i in [*modmaxhp, *modanimal, *modcacador, *modtrampa, *modllac, *modboscdens]:
+            for i in [*modanimal, *modcacador, *modtrampa, *modllac, *modboscdens]:
                 if not isinstance(i, int): raise TypeError # Si qualsevol del elements no és un int, salta error TypeError
 
             # Ara, comprova l'arxiu difs.json
@@ -92,6 +91,17 @@ def getMods():
                 if not checkdif(difs[dificultat]): raise SyntaxError # Si una dificultat està malament estructurada, passa del mod
             
             print(f"Dificultats del mod {mod} carreguades correctament")
+
+
+            # Comprovar l'arxiu defaults.json
+            defaults = loads(open(f"mods/{mod}/defaults.json", "r").read())
+
+            for i in defaults: # Per cada element definit en defaults.json
+                if i not in {"Animal", "Cacador", "Trampa", "Llac", "BoscDens"}: continue # Si l'element no és vàŀlid, ignorar-lo
+                for i in defaults[i]:
+                    if not isinstance(i, int): raise TypeError # els valors han de ser int
+
+
 
             # Aquí es controŀlen els errors
         except decoder.JSONDecodeError:
@@ -120,5 +130,6 @@ def loadMod(modname):
     mod = loads(open(f"mods/{modname}/difs.json","r").read())
     for difname in mod:
         difs[difname] = mod[difname]
-    return difs, banner
+    energies = loads(open(f"mods/{modname}/defaults.json","r").read())
+    return difs, energies, banner
     

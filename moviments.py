@@ -36,6 +36,9 @@ def moure(dir, mapa):
     
     var_globals.pos_jugador = [x,y]
 
+
+    # # # # Implementació vella del moviment
+    #
     # if dir == 'W' and mapa[y-1][x].passable:
     #     pos_jugador [1] -= 1
     #     if pos_jugador [1] < 0:

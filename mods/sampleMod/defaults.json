@@ -1,8 +1,7 @@
 {
-    "maxHP":[5],
-    "Animal":[1],
-    "Cacador":[-1],
-    "Trampa":[0],
-    "Llac":[2],
-    "BoscDens":[0]
+    "Animal":[1, 10],
+    "Cacador":[-1, -10],
+    "Trampa":[0, -1],
+    "Llac":[2, 99],
+    "BoscDens":[0, 0]
 }

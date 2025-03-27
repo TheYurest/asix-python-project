@@ -90,7 +90,7 @@ if var_globals.mods_activats:
     print()
 
 #       Demanar la dif, entre 1 i 3. Al acabar, elimina la variable per estalviar espai
-#       Codi vell, el nou suportarà els mods
+#       Codi vell, el nou suporta els mods
 #       user = input("Selecció:")
 #       while user not in ("1","2","3"):
 #           user = input("Selecció fora de rang, prova de nou:")
@@ -125,7 +125,7 @@ while selecting:
     else: # Si l'usuari és al menu d'un mod
         print("\n"*25)
         seleccionables = {}
-        dificultats, banner = var_globals.loadMod(modname)
+        dificultats, energies, banner = var_globals.loadMod(modname)
 
         print(banner, "\n"*2 + "Dificultats:")
         for number, name in enumerate(dificultats):
@@ -139,6 +139,7 @@ while selecting:
             # Prepara la configuració del mapa del mod seleccionat
             nomDificulat = seleccionables[user]
             info = dificultats[nomDificulat]
+            var_globals.dificultat = int(user)-1
 
             mapaX = info["y"]
             mapaY = info["x"]
@@ -150,19 +151,22 @@ while selecting:
             import elements as E
 
             elemsInfo = info["elems"]
+            
+
             modElements = []
             for name in elemsInfo:
                 match name:
                     case "Animal":
-                        modElements.append([E.Animal, elemsInfo["Animal"]])
+                        print(energies["Animal"], var_globals.dificultat)
+                        modElements.append([E.Animal, elemsInfo["Animal"], energies["Animal"][var_globals.dificultat]])
                     case "Cacador":
-                        modElements.append([E.Cacador, elemsInfo["Cacador"]])
+                        modElements.append([E.Cacador, elemsInfo["Cacador"], energies["Cacador"][var_globals.dificultat]])
                     case "BoscDens":
-                        modElements.append([E.BoscDens, elemsInfo["BoscDens"]])
+                        modElements.append([E.BoscDens, elemsInfo["BoscDens"], energies["BoscDens"][var_globals.dificultat]])
                     case "Llac":
-                        modElements.append([E.Llac, elemsInfo["Llac"]])
+                        modElements.append([E.Llac, elemsInfo["Llac"], energies["Llac"][var_globals.dificultat]])
                     case "Trampa":
-                        modElements.append([E.Trampa, elemsInfo["Trampa"]])
+                        modElements.append([E.Trampa, elemsInfo["Trampa"], energies["Trampa"][var_globals.dificultat]])
 
             selecting = False # Surt del menu principal i comença el joc
         

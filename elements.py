@@ -47,48 +47,44 @@ import var_globals
 class Animal(Element):
 
 
-    def __init__(self):
+    def __init__(self, energia=2 if dificultat==2 else 5):
 
         def accio(): 
             import var_globals
             var_globals.animals_restants -= 1
             #TO DO: ADD CINEMATIC OR SMTHN
 
-        Element.__init__(self, "A", 2 if dificultat==2 else 5, a=accio) # si la dificultat és difícil, només +2 d'energia. Si no, +5
+        Element.__init__(self, "A", a=accio) # si la dificultat és difícil, només +2 d'energia. Si no, +5
 
 
 class Cacador(Element):    
   
 
-    def __init__(self):
-
-        energies = [-30, -40, -50]
-        super().__init__("♔", energies[dificultat])  # Associar acció al caçador
+    def __init__(self, energia=[-30, -40, -50][dificultat]):
+        super().__init__("♔", energia)  # Associar acció al caçador
 
 
 
 
 class Trampa(Element):
 
-    def __init__(self):
-        energies = [-20, -25, -30]
-        Element.__init__(self, "T", energies[dificultat], leaves=False)
+    def __init__(self, energia=[-20, -25, -30][dificultat]):
+        Element.__init__(self, "T", energia, leaves=False)
 
 
 
 class Llac(Element):
-    def __init__(self):
+    def __init__(self, energia=[5,4,3][dificultat]):
 
-        energies = [5, 4, 3]
-        super().__init__("L", energies[dificultat], leaves=True)  # L'acció del Llac s'executarà quan el jugador passi per sobre
+        super().__init__("L", energia, leaves=True)  # L'acció del Llac s'executarà quan el jugador passi per sobre
 
 
 
 class BoscDens(Element):  # Element que no es pot travessar
-    def __init__(self):
+    def __init__(self, energia=0):
         Element.__init__(self, "B", 0, p=False)  # No es pot passar
    
-    
+
 
 
 

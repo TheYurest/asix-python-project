@@ -17,7 +17,7 @@ element_per_defecte = E.default_element
 match var_globals.dificultat:
     case 0:
         # OPCIONS PER DIFICULTAT FÀCIL
-        lx, ly, elements = 5, 5, [[E.Animal, 2], [E.Cacador, 1], [E.Trampa, 2], [E.Llac, 5], [E.BoscDens, 3]]  
+        lx, ly, elements = 5, 5, [[E.Animal, 2, 0], [E.Cacador, 1, 0], [E.Trampa, 2, 0], [E.Llac, 5, 0], [E.BoscDens, 3, 0]]  
         var_globals.animals_restants = 2
     case 1:
         # OPCIONS PER DIFICULTAT NORMAL
@@ -37,13 +37,20 @@ def GenerarMapa(x=lx, y=ly, llista_elements=elements):
     mapa = [[element_per_defecte() for i in range(x)] for j in range(y)]  # Prepara el mapa, amb elements per defecte (Hauria de ser Vacuum)
 
     # Ara coŀlocar els elements aleatoriament en caselles buides. OJO: SI HI HAN MÉS ELEMENTS QUE CASELLES DISPONIBLES, ENTRARÀ EN BUCLE INFINIT
-    for element, ocurrences in llista_elements:
+    for elementInfo in llista_elements:
+        element, ocurrences = elementInfo[0], elementInfo[1]
         for i in range(ocurrences):
             rax, ray = randint(0, x) - 1, randint(0, y) - 1
-            print(f"trying to put element on {rax};{ray};")
+            print(f"DEBUG: trying to put element on {rax};{ray};")
             while type(mapa[ray][rax]) != element_per_defecte or [rax, ray] == var_globals.pos_jugador:
                 rax, ray = randint(0, x - 1), randint(0, y - 1)  # Seleccionar una casella buida a l'atzar
-            mapa[ray][rax] = element()
+
+            # si es tracta d'un mod, ha de fer servir les energies personalitzades, si no, les que hi ha per defecte
+            if elementInfo[2] != 0:
+                # L'estructura de la llista d'elements és diferent en els mods; a part de la quantitat, també s'afegeix l'energia
+                mapa[ray][rax] = element(energia=elementInfo[2])
+            else:
+                mapa[ray][rax] = element()
             print("DEBUG: ELEMENT COĿLOCAT")
 
     return mapa
@@ -60,13 +67,14 @@ def RenderitzarMapa(mapa, fow):
     for i in range(x+1):
         for j in range(y+1):
             if [i, j] == var_globals.pos_jugador:
-                buffer += var_globals.character_jugador
+                buffer += var_globals.character_jugador + " "
                 continue
 
             if fow[j][i] == 0:
                 buffer += str(mapa[j][i])
             else:
                 buffer += fow[j][i]
+            buffer += " "
         buffer += "\n: "
 
     return buffer
