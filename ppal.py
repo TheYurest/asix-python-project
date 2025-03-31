@@ -208,7 +208,7 @@ else:
 playing = True # Serà False quan la partida termini.
 var_globals.vida_jugador = var_globals.vida_max
 while playing:
-    print("\n"*25) # Donar espai pq la terminal quedi netal2
+    var_globals.Clear() # Donar espai pq la terminal quedi netal2
 
 
     moviments.UpdateFOW(FOW, fow_r)
@@ -230,4 +230,5 @@ while playing:
         playing = False
         print("🎉 Has fotografiat tots els animals! Has guanyat! 🎉")
     
+
 

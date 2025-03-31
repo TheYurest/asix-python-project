@@ -133,3 +133,8 @@ def loadMod(modname):
     energies = loads(open(f"mods/{modname}/defaults.json","r").read())
     return difs, energies, banner
     
+import os
+
+def Clear():
+    """Limpia la pantalla."""
+    os.system('cls' if os.name == 'nt' else 'clear')
