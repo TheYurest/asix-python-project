@@ -17,15 +17,15 @@ element_per_defecte = E.default_element
 match var_globals.dificultat:
     case 0:
         # OPCIONS PER DIFICULTAT FÀCIL
-        lx, ly, elements = 5, 5, [[E.Animal, 2, 0], [E.Cacador, 1, 0], [E.Trampa, 2, 0], [E.Llac, 5, 0], [E.BoscDens, 3, 0]]  
+        lx, ly, elements = 5, 5, [[E.Animal, 2, 0], [E.Cacador, 1, 0], [E.Trampa, 2, 0], [E.Llac, 5, 0], [E.BoscDens, 3, 0], [E.Refugi, 2, 0]]  
         var_globals.animals_restants = 2
     case 1:
         # OPCIONS PER DIFICULTAT NORMAL
-        lx, ly, elements = 10, 10, [[E.Animal, 5, 0], [E.Cacador, 3, 0], [E.Trampa, 10, 0], [E.Llac, 5, 0], [E.BoscDens, 5, 0]]  
+        lx, ly, elements = 10, 10, [[E.Animal, 5, 0], [E.Cacador, 3, 0], [E.Trampa, 10, 0], [E.Llac, 5, 0], [E.BoscDens, 5, 0], [E.Refugi, 6, 0]]  
         var_globals.animals_restants = 5
     case 2:
         # OPCIONS PER DIFICULTAT DIFÍCIL
-        lx, ly, elements = 15, 15, [[E.Animal, 10, 0], [E.Cacador, 5, 0], [E.Trampa, 25, 0], [E.Llac, 5, 0], [E.BoscDens, 7, 0]]
+        lx, ly, elements = 15, 15, [[E.Animal, 10, 0], [E.Cacador, 5, 0], [E.Trampa, 25, 0], [E.Llac, 5, 0], [E.BoscDens, 7, 0], [E.Refugi, 16, 0]]
         var_globals.animals_restants = 10
 
 # X i Y son les dimensions. "Elements" és una matriu, on cada fila té l'element i el nombre d'ocurrences.

@@ -123,7 +123,7 @@ while selecting:
 
 
     else: # Si l'usuari és al menu d'un mod
-        print("\n"*25)
+        var_globals.Clear()
         seleccionables = {}
         dificultats, energies, banner = var_globals.loadMod(modname)
 
@@ -170,14 +170,14 @@ while selecting:
 
             selecting = False # Surt del menu principal i comença el joc
         
-        print("\n"*25)
+        var_globals.Clear() # Neteja la pantalla per fer espai al banner del mod
 
 
 
 
 
 
-print("\n"*10) # fer una mica d'espai
+var_globals.Clear() # fer una mica d'espai
 
 #DEBUG: TEST IF DIFFICULTY SET CORRECTLY
 
@@ -229,6 +229,8 @@ while playing:
     if var_globals.animals_restants == 0:
         playing = False
         print("🎉 Has fotografiat tots els animals! Has guanyat! 🎉")
+
+    
     
 
 

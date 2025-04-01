@@ -83,7 +83,11 @@ class Llac(Element):
 class BoscDens(Element):  # Element que no es pot travessar
     def __init__(self, energia=0):
         Element.__init__(self, "B", 0, p=False)  # No es pot passar
-   
+
+class Refugi(Element): #Recuperar tota l'energia
+    def __init__(self):
+        from var_globals import vida_max
+        super().__init__("R", vida_max, leaves=False)  # Recupera tota l'energia del jugador
 
 
 
