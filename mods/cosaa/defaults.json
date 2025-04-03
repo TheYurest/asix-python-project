@@ -1,0 +1,8 @@
+{
+    "Animal":[1, 10],
+    "Cacador":[-1, -10],
+    "Trampa":[0, -1],
+    "Llac":[2, 99],
+    "Refugi": [0, 0],
+    "BoscDens":[0, 0]
+}

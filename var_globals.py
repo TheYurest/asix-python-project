@@ -118,7 +118,7 @@ def getMods():
             disponibles.append(mod) # Si no hi ha cap error, marca el mod com a disponible
             #(OJO: NO CARREGUA EL MOD, NOMÉS L'AFEGEIX A LA LLISTA DE MODS DISPONIBLES. EL MOD ES CARREGUARÀ QUAN ES SELECCIONI)
         
-        return disponibles
+    return disponibles
 
     print("DEBUG: Mods disponibles:", *disponibles)
 
