@@ -59,7 +59,7 @@ if mods.lower() in "yes" and mods!="":
     var_globals.mods_disponibles = var_globals.getMods()
     var_globals.mods_activats = True
 
-
+var_globals.Clear()
 
 missatge_benvilguda = '''
 
@@ -167,6 +167,8 @@ while selecting:
                         modElements.append([E.Llac, elemsInfo["Llac"], energies["Llac"][var_globals.dificultat]])
                     case "Trampa":
                         modElements.append([E.Trampa, elemsInfo["Trampa"], energies["Trampa"][var_globals.dificultat]])
+                    case "Refugi":
+                        modElements.append([E.Refugi, elemsInfo["Refugi"], energies["Refugi"][var_globals.dificultat]])
 
             selecting = False # Surt del menu principal i comença el joc
         

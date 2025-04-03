@@ -69,9 +69,10 @@ def getMods():
             modtrampa=defaults["Trampa"]
             modllac=defaults["Llac"]
             modboscdens=defaults["BoscDens"]
+            modrefugi=defaults["Refugi"]
 
             # Tots els elements han de ser int, així que comproval's tots
-            for i in [*modanimal, *modcacador, *modtrampa, *modllac, *modboscdens]:
+            for i in [*modanimal, *modcacador, *modtrampa, *modllac, *modboscdens, *modrefugi]:
                 if not isinstance(i, int): raise TypeError # Si qualsevol del elements no és un int, salta error TypeError
 
             # Ara, comprova l'arxiu difs.json
@@ -97,7 +98,7 @@ def getMods():
             defaults = loads(open(f"mods/{mod}/defaults.json", "r").read())
 
             for i in defaults: # Per cada element definit en defaults.json
-                if i not in {"Animal", "Cacador", "Trampa", "Llac", "BoscDens"}: continue # Si l'element no és vàŀlid, ignorar-lo
+                if i not in {"Animal", "Cacador", "Trampa", "Llac", "BoscDens", "Refugi"}: continue # Si l'element no és vàŀlid, ignorar-lo
                 for i in defaults[i]:
                     if not isinstance(i, int): raise TypeError # els valors han de ser int
 

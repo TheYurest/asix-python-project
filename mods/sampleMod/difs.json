@@ -9,19 +9,21 @@
             "Hidespot": 3,
             "Animal": 5,
             "Cacador": 5,
-            "BoscDens":30
+            "BoscDens":30,
+            "Refugi":1
         }
     },"I Need Space":{
         "hp":69,
-        "x": 70,
-        "y": 30,
+        "x": 40,
+        "y": 40,
         "fow": 4,
         "goal":15,
         "elems":{
             "Hidespot": 3,
             "Animal": 45,
             "Cacador": 5,
-            "BoscDens":95
+            "BoscDens":95,
+            "Refugi":10
         }
     }
 }
