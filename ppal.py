@@ -61,6 +61,28 @@ if mods.lower() in "yes" and mods!="":
 
 var_globals.Clear()
 
+
+personatges = ["J", "i", "ඞ", "人 (Pot causar bugs visuals)"]
+print("Selecciona el teu personatge:")
+disponibles = []
+for index, caracter in enumerate(personatges):
+    disponibles.append(str(index+1))
+    print(f"{index+1}. {caracter}")
+
+selecting = True
+
+while selecting:
+    user = input("Selecció:")
+    if user in disponibles:
+        var_globals.character_jugador = personatges[int(user)-1][0]
+        selecting = False
+    else:
+        print("Selecció no vàŀlida, prova de nou.")
+
+var_globals.Clear()
+
+
+
 missatge_benvilguda = '''
 
 ======BENVOLGUTS AL PROJECTE======
