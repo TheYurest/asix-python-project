@@ -26,8 +26,15 @@ def moure(dir, mapa):
     else:
         dir = [0,0]
     
-    if mapa[(y+dir[1])%len(mapa)][(x+dir[0])%len(mapa[0])].passable:
+    target = mapa[(y+dir[1])%len(mapa)][(x+dir[0])%len(mapa[0])]
+
+    if target.accio != None:        
+        target.accio()
+
+
+    if target.passable:
         x, y = [x+dir[0],y+dir[1]]
+        
     # comprova si el jugador ha sortit del mapa
     if x<0: x=len(mapa[0])-1
     if y<0: y=len(mapa)-1
@@ -57,8 +64,7 @@ def moure(dir, mapa):
     #         pos_jugador[0] = 0
     
     x,y=var_globals.pos_jugador
-    if mapa[y][x].accio != None:        
-        mapa[y][x].accio()
+    
     
     var_globals.vida_jugador = min(vida_jugador+mapa[y][x].energia, var_globals.vida_max)
 

@@ -52,16 +52,227 @@ class Animal(Element):
         def accio(): 
             import var_globals
             var_globals.animals_restants -= 1
-            #TO DO: ADD CINEMATIC OR SMTHN
+            #MOSTRA UNA FOTO D'UN ANIMAL RANDOM DE LA LLISTA
+            imatges = [r"""       _                        
+       \`*-.                    
+        )  _`-.                 
+       .  : `. .                
+       : _   '  \               
+       ; *` _.   `*-._          
+       `-.-'          `-.       
+         ;       `       `.     
+         :.       .        \    
+         . \  .   :   .-'   .   
+         '  `+.;  ;  '      :   
+         :  '  |    ;       ;-. 
+         ; '   : :`-:     _.`* ;
+      .*' /  .*' ; .*`- +'  `*' 
+      `*-*   `*-*  `*-*'
+        Has fotografiat un gat!""", r"""                                                         _...---.._
+                                                     _.'`       -_  `.
+                                                 .-'`                  \
+                                              .-`                     q
+                                           _-`                       __  \
+                                       .-'`                  . ' .   \ `;/
+                                   _.-`                    /       `._`/
+                           _...--'`                        \_
+                        .'`                         -         `'--.._
+                     . `                           \                  `-.
+                    .                `              `-..__. ... - -.._`-
+                   '.                `  '''---- -''`                  `-.`.
+                 .` -                '`.  `-.
+              .-` .` '             .`'.__ ;
+          _.-` .-`   '            .
+      _.-`  .-`       '         .`
+(`''-'' _.-`          '        .'
+ `'---''            .`       .`
+                 .'     . '`
+                .    .-`
+              .`   ,`
+             '   .'
+           '   .`
+          '  .`
+          `  '.
+          `.___;
+    Has fotografiat un puma!""", r"""              :     :
+        __    |     |    _,_
+       (  ~~^-l_____],.-~  /
+        \    ")\ "^k. (_,-"
+         `>._  ' _ `\  \
+      _.-~/'^k. (0)  ` (0
+   .-~   {    ~` ~    ..T
+  /   .   "-..       _.-'
+ /    Y        .   "T
+Y     l         ~-./l_
+|      \          . .<'
+|       `-.._  __,/"r'
+l   .-~~"-.    /    I
+ Y         Y "~[    |
+  \         \_.^--, [
+   \            _~> |
+    \      ___)--~  |
+     ^.       :     l
+       ^.   _.j     |
+         Y    I     |
+         l    l     I
+          Y    \    |
+           \    ^.  |
+            \     ~-^.
+             ^.       ~"--.,_
+              |~-._          ~-.
+              |    ~Y--.,_      ^.
+              :     :     "x      \
+                            \      \.
+                             \      ]
+                              ^._  .^
+    Has fotografiat un esquirol volador!""", r"""                                  z-                                         
+                                 d$                                          
+                               .$$F                                          
+                              z$$$                             d$$b     .$$  
+-                            J$$$$                            d$. $$$$$$$$$  
+  \                         4$$$$$                           z$$$$$$$$$$$$"  
+   "c                       $$$$$$F                         d$$$*$$$$"       
+    "$e.      .            $$$$$$$$                       .$$$$$             
+     3$$$$$$P"             $$$$$$$$c                    .$$$$$$              
+      $$$$$"               $$$$$$$$$r                .e$$$$$$$F              
+      *$$$b                $$$$$$$$$$c           .e$$$$$$$$$$P               
+      '$P "$.              $$$$$$$$$$$b.    .ee$$$$$$$$$$$$$P                
+       $   ^$$.             $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$F                 
+       "     $$$$e..      .e$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"                  
+      4       "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$P                    
+                *$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$P                      
+                  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*                        
+                     "*$$$$$$$$$$$$$$$$$$$$$$$$$$$"                          
+                         "*$$$$$$$$$$$$$$$$$$$$$"                            
+                             *$$$$$$$$$$$$$$$"                               
+                                  ''''''''
+    Has fotografiat la draca de Solsona! Feliç Carnaval!""", r'''
+  .--.            .--.
+ ( (`\\."--``--".//`) )
+  '-.   __   __    .-'
+   /   /__\ /__\   \
+  |    \ 0/ \ 0/    |
+  \     `/   \`     /
+   `-.  /-"""-\  .-`
+     /  '.___.'  \
+     \     I     /
+      `;--'`'--;`
+        '.___.'
+Has fotografiat una pantera!
+Espera, és rosa?''',r'''
+       _------.
+      /  ,     \_
+    /   /  /{}\ |o\_
+   /    \  `--' /-' \
+  |      \      \    |
+ |              |`-, |
+ /              /__/)/
+|              |
+
+Has fotografiat un lloro!''',r'''
+      ,~.
+   ,-'__ `-,
+  {,-'  `. }              ,')
+ ,( a )   `-.__         ,',')~,
+<=.) (         `-.__,==' ' ' '}
+  (   )                      /
+   `-'\   ,                  )
+       |  \        `~.      /
+       \   `._        \    /
+        \     `._____,'   /
+         `-.            ,'
+            `-.      ,-'
+               `~~~~'
+               //_||
+            __//--'/`
+          ,--'/`  '
+             '
+
+Has fotografiat una gallina!''',r'''
+quu..__
+ $$$b  `---.__
+  "$$b        `--.                          ___.---uuudP
+   `$$b           `.__.------.__     __.---'      $$$$"              .
+     "$b          -'            `-.-'            $$$"              .'|
+       ".                                       d$"             _.'  |
+         `.   /                              ..."             .'     |
+           `./                           ..::-'            _.'       |
+            /                         .:::-'            .-'         .'
+           :                          ::''\          _.'            |
+          .' .-.             .-.           `.      .'               |
+          : /'$$|           .@"$\           `.   .'              _.-'
+         .'|$u$$|          |$$,$$|           |  <            _.-'
+         | `:$$:'          :$$$$$:           `.  `.       .-'
+         :                  `"--'             |    `-.     \
+        :##.       ==             .###.       `.      `.    `\
+        |##:                      :###:        |        >     >
+        |#'     `..'`..'          `###'        x:      /     /
+         \                                   xXX|     /    ./
+          \                                xXXX'|    /   ./
+          /`-.                                  `.  /   /
+         :    `-  ...........,                   | /  .'
+         |         ``:::::::'       .            |<    `.
+         |             ```          |           x| \ `.:``.
+         |                         .'    /'   xXX|  `:`M`M':.
+         |    |                    ;    /:' xXXX'|  -'MMMMM:'
+         `.  .'                   :    /:'       |-'MMMM.-'
+          |  |                   .'   /'        .'MMM.-'
+          `'`'                   :  ,'          |MMM<
+            |                     `'            |tbap\
+             \                                  :MM.-'
+              \                 |              .''
+               \.               `.            /
+                /     .:::::::.. :           /
+               |     .:::::::::::`.         /
+               |   .:::------------\       /
+              /   .''               >::'  /
+              `',:                 :    .'
+                                   `:.:'
+
+Com?! Has fotografiat un Pikachu!
+Atrapal's a tots!''']
+            from random import randint as r
+            var_globals.Clear()
+            print(imatges[r(0, len(imatges)-1)])
+            input("\nPrem enter per continuar...")
 
         Element.__init__(self, "A",e=energia, a=accio) # si la dificultat és difícil, només +2 d'energia. Si no, +5
 
 
 class Cacador(Element):    
   
+    
 
     def __init__(self, energia=[-30, -40, -50][dificultat]):
-        super().__init__("♔", energia)  # Associar acció al caçador
+        def accio():
+            from var_globals import Clear
+            Clear()
+            print(r'''           ___      |\________/)
+          [_,_])    \ /       \|
+         /|=T=|]     /   __  __\
+         |\ " //     |_  9   p ]\
+         ||'-'/--.  / /\ =|  \|\ \
+        /|| <\/> |\ | '._, @ @)<_)
+       | |\   |  |   \.__/(_;_)
+       |  .   H  |   |  :  '='|
+       |  |  _H__/  _| :      |
+        \  '.__  \ /  ;      ';
+       __'-._(_}==.'  :       ;
+      (___|    /-' |   :.     :
+     [.-'  \   |   \   \ ;   :
+    .-'     |  |    |  |   ":
+   /        |==|     \  \  /  \_
+  /         [  |      '._\_ -._ \
+ /           \__)   __.- \ \   )\\
+/       |        /.'      >>)
+|        \       |\     |
+|     .'  '-.    | \    /
+|    /     /     / /   /
+     snd   |    /
+    El rei t'ha confòs per un animal i t'ha disparat!
+        *Aquest rei ha fugit del tauler...''')
+            input("\nPrem enter per continuar...")
+        super().__init__("♔", energia, a=accio)  # Associar acció al caçador
 
 
 
@@ -82,7 +293,26 @@ class Llac(Element):
 
 class BoscDens(Element):  # Element que no es pot travessar
     def __init__(self, energia=0):
-        Element.__init__(self, "B", 0, p=False)  # No es pot passar
+        
+        def accio():
+            from var_globals import Clear
+            Clear()
+            print(r'''
+      /\      /\      /\      /\      /\      /\      /\      /\
+     /**\    /**\    /**\    /**\    /**\    /**\    /**\    /**\
+    /****\  /****\  /****\  /****\  /****\  /****\  /****\  /****\
+   /      \/      \/      \/      \/      \/      \/      \/      \
+  /  /\     /\      /\      /\      /\      /\      /\      /\     \/\
+ /  /**\   /**\    /**\    /**\    /**\    /**\    /**\    /**\    /**\
+/__/****\_/****\__/****\__/****\__/****\__/****\__/****\__/****\__/****\
+     ||       ||       ||       ||       ||       ||       ||       ||
+     ||       ||       ||       ||       ||       ||       ||       ||
+     ||       ||       ||       ||       ||       ||       ||       ||
+No pots passar per aquí, el bosc és massa dens.
+    Busca un altre camí, recorda que el mapa és esfèric.''')
+            input("\nPrem enter per continuar")
+
+        Element.__init__(self, "B", 0, p=False, a=accio)  # No es pot passar
 
 class Refugi(Element): #Recuperar tota l'energia
     def __init__(self):
