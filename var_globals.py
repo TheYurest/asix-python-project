@@ -6,7 +6,7 @@ if __name__=="__main__":
 
 vida_jugador = 99
 vida_max = [100, 50, 25]
-mapa = None  # Initialize the map variable
+mapa = None
 
 
 pos_jugador = [3, 3] # X, Y
@@ -139,3 +139,58 @@ import os
 def Clear():
     """Limpia la pantalla."""
     os.system('cls' if os.name == 'nt' else 'clear')
+
+def GuardarPartida(mapa, fow, r):
+    '''Guarda la partida. Les dades es guarden en el fitxer "partida.txt", i podrà ser carregat més endavant.
+    Retorna True si la partida s'ha guardat amb èxit, False si ha hagut un error'''
+    # Ha de guardar:
+    # El radi del FOW
+    # vida i vida màxima
+    # animals restants
+    # La posició del jugador
+    # La dificultat en int
+    # El mapa i el FOW
+    try:
+        fileOpen = False # És per comprovar si l'arxiu s'ha pogut obrir, i tencar-lo en aquest cas
+        file = open("partida.txt", "w")
+        fileOpen = True
+        saveDif = dificultat
+        data = ""
+
+
+        # Primer Guarda les variables
+        data += f"hp={vida_jugador}/{vida_max}\n"
+        data += f"animals={animals_restants}\n"
+        data += f"pos={pos_jugador}\n"
+        data += f"dif={saveDif}\n"
+        data += f"char={character_jugador}\n"
+        data += f"fow={r}\n"
+
+
+        # Ara guarda el mapa, linea per linea
+        # Nota: Com el mapa son objectes, primer passa-les a string, per si de cas
+        for i in mapa:
+            linea = ""
+            for obj in i: linea += str(obj)
+            data += f"#M{linea}\n"
+        
+        # Ara, el FOW
+        for i in fow:
+            linea = ""
+            for obj in i: linea += str(obj)
+            data += f"#F{linea}\n"
+
+        # Escriu tota la informació al fitxer
+        file.write(data)
+        
+    except:
+        # Alguna cosa ha anat malament, retorna False
+        input("Error en guardar la partida.")
+        return False
+    else:
+        # Cap error, retorna True
+        return True
+    finally:
+        if fileOpen: file.close()
+
+
