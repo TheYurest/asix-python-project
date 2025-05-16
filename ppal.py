@@ -471,14 +471,20 @@ while playing:
 
     seleccioUsuari = input("Selecciona el teu moviment:")
     if seleccioUsuari.lower() == "g" and not var_globals.mods_activats:
-        # L'usuari vol guardar partida i els mods estan desactivats, tanca el bucle
-
+        # L'usuari vol guardar partida i els mods estan desactivats, tanca el bucle    
         if var_globals.GuardarPartida(map, FOW, fow_r):
             playing = False
             print("Partida Guardada")
+    elif seleccioUsuari.lower() == "q":
+            playing = False
+            print('Joc Tancat')
     else:
         # Moviment normal
         moviments.moure(seleccioUsuari, map)
+    
+    
+    
+   
     
 
     
