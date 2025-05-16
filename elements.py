@@ -272,7 +272,7 @@ class Cacador(Element):
     El rei t'ha confòs per un animal i t'ha disparat!
         *Aquest rei ha fugit del tauler...''')
             input("\nPrem enter per continuar...")
-        super().__init__("♔", energia, a=accio)  # Associar acció al caçador
+        super().__init__("C", energia, a=accio)  # Associar acció al caçador
 
 
 
