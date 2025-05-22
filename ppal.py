@@ -64,7 +64,7 @@
 
 # Importar tots els mòduls adicionals
 import var_globals
-# import elements as E # Només cal importar-lo si es carregua un mod, pel que es carregua més abaix
+# import elements as E # Només cal importar-lo si es carrega un mod, pel que es carrega més abaix
 
 
 
@@ -73,7 +73,7 @@ import var_globals
 # TAMBÉ ES POT SELECCIONAR EL NOM (Funcionalitat extra)
 print("Voldrieu carregar els mods? Activar-los desactivarà la funció de guardat.")
 print("Si no esteu segurs, seleccioneu \"N\"")
-mods = input("Carreguar mods [y/N]:")
+mods = input("Carregar mods [y/N]:")
 
 if mods.lower() in "yes" and mods!="":
     var_globals.mods_disponibles = var_globals.getMods()
@@ -82,7 +82,7 @@ if mods.lower() in "yes" and mods!="":
 var_globals.Clear()
 
 
-personatges = ["J", "i", "+"]
+personatges = ["J", "i", "+", "8"]
 print("Selecciona el teu personatge:")
 disponibles = []
 for index, caracter in enumerate(personatges):
@@ -97,7 +97,7 @@ while selecting:
         var_globals.character_jugador = personatges[int(user)-1][0]
         selecting = False
     else:
-        print("Selecció no vàŀlida, prova de nou.")
+        print("Selecció no vàlida, prova de nou.")
 
 var_globals.Clear()
 
@@ -119,7 +119,7 @@ var_globals.Clear()
 
 
 # Abans de seleccionar dificultat, comprova si hi ha una partida guardada.
-# Si n'hi ha una, demana si es vol carreguar
+# Si n'hi ha una, demana si es vol carregar
 
 saveGameExists = False
 saveGameCorrect = False
@@ -149,11 +149,11 @@ try:
         else:
             # Si el mapa comença per #M, és el mapa. Si comença per #F, és el FOW. Si no comença per cap, error
             # També, a cada iteració comprova que la llongitud és igual a la de la primera línea (El mapa ha de ser quadrat)
-            # Quan es carregui tot el fitxer, assegura't que la mida del mapa i del FOW son iguals
+            # Quan es carregi tot el fitxer, assegura't que la mida del mapa i del FOW son iguals
             if line[1] == "M":
                 saveData["map"].append([char for char in line[2:]])
                 if len(line[2:]) != len(saveData["map"][0]):
-                    print("Carregant partida guardada: Error en carreguar el Mapa")
+                    print("Carregant partida guardada: Error en carregar el Mapa")
                     
                     raise SyntaxError
             elif line[1] == "F":
@@ -165,11 +165,11 @@ try:
 
 
                 if len(line[2:]) != len(saveData["fow"][0]):
-                    print("Carregant partida guardada: Error en carreguar el FOW")
+                    print("Carregant partida guardada: Error en carregar el FOW")
                     
                     raise SyntaxError
             else:
-                print("Carregant partida guardada: Error en carreguar el Mapa i/o el FOW")
+                print("Carregant partida guardada: Error en carregar el Mapa i/o el FOW")
 
                 raise SyntaxError
 
@@ -212,7 +212,7 @@ try:
     posdata[0], posdata[1] = int(posdata[0]), int(posdata[1]) # Aquesta és la array final
     saveData["pos"] = posdata
 
-    saveGameCorrect = True # L'arxiu de guardat és correcte, es demanarà al jugador si vol carreguar-la
+    saveGameCorrect = True # L'arxiu de guardat és correcte, es demanarà al jugador si vol carregar-la
 
 
 except FileNotFoundError:
@@ -226,16 +226,16 @@ except Exception as e:
     print(e)
     pass # Altres errors
 finally:
-    if saveGameExists: file.close() # Si ha carreguat el fitxer, tanca'l
+    if saveGameExists: file.close() # Si ha carregat el fitxer, tanca'l
 
 
 
 carregarJoc = False
 if saveGameExists and not var_globals.mods_activats:
     if not saveGameCorrect:
-        print("S'ha detectat una partida guardada, però no s'ha pogut carreguar")
+        print("S'ha detectat una partida guardada, però no s'ha pogut carregar")
     else:
-        print("Hi ha una partida guardada, carreguar-la? [y/N]:")
+        print("Hi ha una partida guardada, carregar-la? [y/N]:")
         usuari = input().lower()
         carregarJoc = usuari in "yes" and len(usuari) != 0
 
@@ -374,7 +374,7 @@ if var_globals.animals_restants_mod != 0: var_globals.animals_restants = var_glo
 
 
 if carregarJoc:
-    # Carreguar Joc Guardat.
+    # carregar Joc Guardat.
     from elements import Animal, Refugi, Cacador, Llac, Trampa, BoscDens, default_element
 
     var_globals.dificultat = saveData["dif"]
@@ -412,7 +412,7 @@ if carregarJoc:
     var_globals.mapa = mapaElements.copy()
     map = var_globals.mapa
     
-    # Ara carregua el FOW
+    # Ara carrega el FOW
     FOW = []
     for linea in saveData["fow"]:
         fowlinea = []
@@ -428,12 +428,12 @@ if carregarJoc:
     var_globals.animals_restants = saveData["animals"]
 
 elif modmenu:
-    #Carreguar mod
+    #carregar mod
     var_globals.mapa = mapa.GenerarMapa(x=mapaX, y=mapaY, llista_elements=modElements)
     map = var_globals.mapa
     FOW = mapa.GenerarFOW(x=mapaX, y=mapaY,character="X")
 else:
-    #Carreguar partida normal
+    #carregar partida normal
     var_globals.mapa = mapa.GenerarMapa()
     map = var_globals.mapa
 
