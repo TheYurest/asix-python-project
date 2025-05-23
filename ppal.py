@@ -237,6 +237,7 @@ if saveGameExists and not var_globals.mods_activats:
     else:
         print("Hi ha una partida guardada, carregar-la? [y/N]:")
         usuari = input().lower()
+        var_globals.Clear()
         carregarJoc = usuari in "yes" and len(usuari) != 0
 
 

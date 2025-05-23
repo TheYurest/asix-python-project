@@ -41,7 +41,7 @@ def GenerarMapa(x=lx, y=ly, llista_elements=elements):
         element, ocurrences = elementInfo[0], elementInfo[1]
         for i in range(ocurrences):
             rax, ray = randint(0, x) - 1, randint(0, y) - 1
-            print(f"DEBUG: trying to put element on {rax};{ray};")
+            #print(f"DEBUG: trying to put element on {rax};{ray};")
             while type(mapa[ray][rax]) != element_per_defecte or [rax, ray] == var_globals.pos_jugador:
                 rax, ray = randint(0, x - 1), randint(0, y - 1)  # Seleccionar una casella buida a l'atzar
 
@@ -51,7 +51,7 @@ def GenerarMapa(x=lx, y=ly, llista_elements=elements):
                 mapa[ray][rax] = element(energia=elementInfo[2])
             else:
                 mapa[ray][rax] = element()
-            print("DEBUG: ELEMENT COĿLOCAT")
+            #print("DEBUG: ELEMENT COĿLOCAT")
 
     return mapa
 

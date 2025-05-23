@@ -120,7 +120,7 @@ def getMods():
         
     return disponibles
 
-    print("DEBUG: Mods disponibles:", *disponibles)
+    #print("DEBUG: Mods disponibles:", *disponibles)
 
 
 
